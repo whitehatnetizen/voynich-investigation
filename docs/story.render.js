@@ -39,7 +39,9 @@
       s.appendChild(txt(padL-8,y+bh/2+4,d[0],Object.assign({"text-anchor":"end","font-size":10.5,
         fill:hlt?SIG:INK},MONO)));
       const lab=o.pct?(val*100).toFixed(val<0.1?1:0)+"%":val.toFixed(val%1?2:1);
-      s.appendChild(txt((bx>=zeroX?bx+5:bx-5),y+bh/2+4,lab,Object.assign({"text-anchor":bx>=zeroX?"start":"end",
+      // negative bars: value label goes right of the zero axis (that region is empty for the
+      // row), so it cannot collide with the row label on the far left
+      s.appendChild(txt((bx>=zeroX?bx+5:zeroX+5),y+bh/2+4,lab,Object.assign({"text-anchor":"start",
         "font-size":10,fill:INK},MONO)));
     });
     s.appendChild(el("line",{x1:zeroX,y1:top,x2:zeroX,y2:top+o.data.length*rowH,stroke:INK,"stroke-width":1.5}));
@@ -91,28 +93,30 @@
 
   // long-range MI decay: Voynich stays positive, generator + language go to zero/negative
   function decaySketch(){
-    const W=560,H=250,s=svg(W,H),x0=48,x1=W-20,y0=24,yz=H-70,y1=H-38;
+    const W=560,H=280,s=svg(W,H),x0=48,x1=W-20,y0=24,yz=H-90;
+    const sc=v=>yz-v/0.18*(yz-y0);
     s.appendChild(el("line",{x1:x0,y1:yz,x2:x1,y2:yz,stroke:INK,"stroke-width":1.5}));
-    s.appendChild(el("line",{x1:x0,y1:y0,x2:x0,y2:y1,stroke:INK,"stroke-width":1.5}));
+    s.appendChild(el("line",{x1:x0,y1:y0,x2:x0,y2:H-52,stroke:INK,"stroke-width":1.5}));
     s.appendChild(txt(x0-6,y0+6,"info",Object.assign({"text-anchor":"end","font-size":9,fill:DIM},MONO)));
-    s.appendChild(txt(x1,yz-4,"0",Object.assign({"text-anchor":"end","font-size":9,fill:DIM},MONO)));
-    s.appendChild(txt(x1,y1,"word distance d →",Object.assign({"text-anchor":"end","font-size":9,fill:DIM},MONO)));
+    s.appendChild(txt(x0-6,yz+4,"0",Object.assign({"text-anchor":"end","font-size":9,fill:DIM},MONO)));
+    s.appendChild(txt((x0+x1)/2,H-8,"word distance d →",Object.assign({"text-anchor":"middle","font-size":9,fill:DIM},MONO)));
     // Voynich: high near, decays but stays above zero to far d
-    let p="M "+x0+" "+(y0+6);
+    let p="";
     for(let i=0;i<=40;i++){const x=x0+i/40*(x1-x0);const v=0.16*Math.exp(-i/9)+0.02*Math.exp(-i/60);
-      p+=` L ${x} ${yz-v/0.18*(yz-y0)}`;}
+      p+=(i?" L ":"M ")+x+" "+sc(v);}
     s.appendChild(el("path",{d:p,fill:"none",stroke:SIG,"stroke-width":2.4}));
-    s.appendChild(txt(x0+(x1-x0)*0.42,yz-38,"VOYNICH (stays positive to d≈500)",Object.assign({"font-size":9,fill:SIG},MONO)));
+    s.appendChild(txt(x0+(x1-x0)*0.30,yz-72,"VOYNICH (stays positive to d≈500)",Object.assign({"font-size":9,fill:SIG},MONO)));
     // generator: ~a third, dips negative
-    let g="M "+x0+" "+(y0+40);
+    let g="";
     for(let i=0;i<=40;i++){const x=x0+i/40*(x1-x0);const v=0.05*Math.exp(-i/6)-0.02*(1-Math.exp(-i/20));
-      g+=` L ${x} ${yz-v/0.18*(yz-y0)}`;}
+      g+=(i?" L ":"M ")+x+" "+sc(v);}
     s.appendChild(el("path",{d:g,fill:"none",stroke:DIM,"stroke-width":1.6,"stroke-dasharray":"5 3"}));
-    s.appendChild(txt(x0+6,yz+22,"GENERATOR (~a third, then negative)",Object.assign({"font-size":9,fill:DIM},MONO)));
     // language: negative
     s.appendChild(el("path",{d:`M ${x0} ${yz-6} Q ${(x0+x1)/2} ${yz+18} ${x1} ${yz+14}`,fill:"none",
       stroke:CYAN,"stroke-width":1.4,"stroke-dasharray":"2 3"}));
-    s.appendChild(txt(x1-6,yz+30,"SINGLE REAL WORK (≈0 / negative)",Object.assign({"text-anchor":"end","font-size":9,fill:CYAN},MONO)));
+    // legend row along the bottom, clear of all three curves and the axis label
+    s.appendChild(txt(x0,yz+42,"GENERATOR (~a third, then negative)",Object.assign({"font-size":9,fill:DIM},MONO)));
+    s.appendChild(txt(x1,yz+42,"SINGLE REAL WORK (≈0 / negative)",Object.assign({"text-anchor":"end","font-size":9,fill:CYAN},MONO)));
     return wrap(s,"CROSS-WORD MUTUAL INFORMATION vs DISTANCE (SCHEMATIC)");
   }
 

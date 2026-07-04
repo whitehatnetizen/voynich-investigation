@@ -203,7 +203,7 @@ z = excess / std(null)`}]
   hyp:"If it is meaningless local generation, mutual information between words collapses within a few words. If it carries content, information persists across hundreds of words.",
   test:"Measured mutual information between words d apart, split into repetition (same word) and association (different words predicting each other), out to 800 words, against a 200-shuffle null.",
   verdict:"v-mix", verdictText:"POSITIVE FOR CONTENT",
-  res:"The Voynich carries long-range association information (signed excess +0.16 bits, z≈9) that a single real work does not. The mechanical generator reproduces at most about a third of it under a generous accounting, and none under the strict signed accounting (its excess goes negative, like the real languages'), missing the smooth positive decay under both. (An earlier '~75%' figure was a clipping bug.) The information tracks the illustrated content down to the individual page.",
+  res:"The Voynich carries long-range association information (signed excess +0.16 bits, z≈9) that a single real work does not. The mechanical generator reproduces at most about a third of it under a generous accounting, and none under the strict signed accounting (its excess goes negative, like the real languages'), missing the smooth positive decay under both. The information tracks the illustrated content down to the individual page.",
   next:"Two readings now survive, differing almost only in the labels. One test separates them: do the labels match the pictures?",
   fig:{type:"decay"},
   algo:[{t:"Long-range mutual information, split self/cross (scripts/long_range_mi.py)", c:
@@ -224,7 +224,7 @@ z = excess / std(null)`}]
 
 # Null: 200 seeded permutations of the stream. The reported budget
 # is the SIGNED sum of (real - null_mean) over d >= 32: no clipping
-# at zero. (The retracted "~75%" came from clipping at 0.)`}]
+# at zero.`}]
 },
 {
   dwg:"PLATE 11 · RED-TEAM + RE-AUDIT", sheet:"SHEET 11/13",

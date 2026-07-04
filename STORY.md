@@ -346,9 +346,7 @@ message's information lives), out to 800 words, against a 200-shuffle null.
 long-range association information, at a signed excess of +0.16 bits and z of about 9, which a
 single real work does not. The mechanical generator reproduces at most about a third of it under a
 generous accounting, and none of it under the strict signed accounting, where its excess comes out
-negative like the real languages'. Under both accountings it misses the smooth positive decay. (An
-earlier "~75%" figure was a bug: per-distance values were clipped at zero before summing, which
-overstated the generator and floored the language baselines.) The information tracks the illustrated
+negative like the real languages'. Under both accountings it misses the smooth positive decay. The information tracks the illustrated
 content down to the individual page, since adjacent folios share vocabulary that decays with
 distance.
 
@@ -373,7 +371,7 @@ def mi_parts_coded(codes, V, d):
 
 # Null: 200 seeded permutations of the stream. The reported budget is
 # the SIGNED sum of (real - null_mean) over d >= 32: no clipping at
-# zero. (The retracted "~75%" came from clipping each distance at 0.)
+# zero.
 ```
 </details>
 

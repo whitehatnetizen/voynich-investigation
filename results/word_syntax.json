@@ -1,0 +1,472 @@
+{
+  "Voynich": {
+    "series": "voynich_eva",
+    "H_word": 10.31,
+    "H_cond": 4.172,
+    "H_cond_shuffled": 4.342,
+    "H_cond_shuffled_sd": 0.0037,
+    "n_reps": 200,
+    "order_info_bits": 0.17,
+    "order_info_z": 45.9,
+    "order_frac": 0.0165,
+    "adjacent_repeat_rate": 0.0085,
+    "top_bigrams": [
+      [
+        "s aiin",
+        54
+      ],
+      [
+        "or aiin",
+        47
+      ],
+      [
+        "chol daiin",
+        33
+      ],
+      [
+        "chol chol",
+        23
+      ],
+      [
+        "o l",
+        21
+      ],
+      [
+        "shedy qokedy",
+        21
+      ],
+      [
+        "ol shedy",
+        21
+      ],
+      [
+        "s ar",
+        19
+      ]
+    ],
+    "n_types": 6789
+  },
+  "English": {
+    "series": "english",
+    "H_word": 9.034,
+    "H_cond": 4.479,
+    "H_cond_shuffled": 5.129,
+    "H_cond_shuffled_sd": 0.00589,
+    "n_reps": 200,
+    "order_info_bits": 0.651,
+    "order_info_z": 110.4,
+    "order_frac": 0.072,
+    "adjacent_repeat_rate": 0.0005,
+    "top_bigrams": [
+      [
+        "of the",
+        143
+      ],
+      [
+        "in the",
+        125
+      ],
+      [
+        "to be",
+        104
+      ],
+      [
+        "i am",
+        79
+      ],
+      [
+        "mr darcy",
+        71
+      ],
+      [
+        "it is",
+        70
+      ],
+      [
+        "to the",
+        63
+      ],
+      [
+        "mr bingley",
+        55
+      ]
+    ],
+    "n_types": 3758
+  },
+  "Latin": {
+    "series": "latin",
+    "H_word": 10.901,
+    "H_cond": 3.513,
+    "H_cond_shuffled": 3.83,
+    "H_cond_shuffled_sd": 0.00292,
+    "n_reps": 200,
+    "order_info_bits": 0.317,
+    "order_info_z": 108.7,
+    "order_frac": 0.0291,
+    "adjacent_repeat_rate": 0.0,
+    "top_bigrams": [
+      [
+        "populi romani",
+        42
+      ],
+      [
+        "ad eum",
+        42
+      ],
+      [
+        "ad caesarem",
+        41
+      ],
+      [
+        "ad se",
+        31
+      ],
+      [
+        "his rebus",
+        27
+      ],
+      [
+        "atque in",
+        27
+      ],
+      [
+        "in gallia",
+        24
+      ],
+      [
+        "et in",
+        23
+      ]
+    ],
+    "n_types": 7509
+  },
+  "German": {
+    "series": "german",
+    "H_word": 9.575,
+    "H_cond": 4.375,
+    "H_cond_shuffled": 4.816,
+    "H_cond_shuffled_sd": 0.00454,
+    "n_reps": 200,
+    "order_info_bits": 0.441,
+    "order_info_z": 97.1,
+    "order_frac": 0.0461,
+    "adjacent_repeat_rate": 0.0016,
+    "top_bigrams": [
+      [
+        "das ist",
+        65
+      ],
+      [
+        "und dann",
+        55
+      ],
+      [
+        "in der",
+        45
+      ],
+      [
+        "und wenn",
+        42
+      ],
+      [
+        "und ich",
+        42
+      ],
+      [
+        "es ist",
+        40
+      ],
+      [
+        "mit dem",
+        38
+      ],
+      [
+        "und die",
+        36
+      ]
+    ],
+    "n_types": 5280
+  },
+  "Spanish": {
+    "series": "spanish",
+    "H_word": 9.181,
+    "H_cond": 4.346,
+    "H_cond_shuffled": 4.82,
+    "H_cond_shuffled_sd": 0.00642,
+    "n_reps": 200,
+    "order_info_bits": 0.474,
+    "order_info_z": 73.8,
+    "order_frac": 0.0516,
+    "adjacent_repeat_rate": 0.0002,
+    "top_bigrams": [
+      [
+        "de la",
+        233
+      ],
+      [
+        "don quijote",
+        226
+      ],
+      [
+        "lo que",
+        125
+      ],
+      [
+        "de su",
+        89
+      ],
+      [
+        "de los",
+        82
+      ],
+      [
+        "en el",
+        80
+      ],
+      [
+        "que se",
+        77
+      ],
+      [
+        "que no",
+        76
+      ]
+    ],
+    "n_types": 5157
+  },
+  "Italian": {
+    "series": "italian",
+    "H_word": 10.302,
+    "H_cond": 3.937,
+    "H_cond_shuffled": 4.204,
+    "H_cond_shuffled_sd": 0.0048,
+    "n_reps": 200,
+    "order_info_bits": 0.266,
+    "order_info_z": 55.5,
+    "order_frac": 0.0259,
+    "adjacent_repeat_rate": 0.0015,
+    "top_bigrams": [
+      [
+        "che non",
+        54
+      ],
+      [
+        "e il",
+        50
+      ],
+      [
+        "e di",
+        46
+      ],
+      [
+        "don abbondio",
+        46
+      ],
+      [
+        "e l",
+        43
+      ],
+      [
+        "d un",
+        34
+      ],
+      [
+        "il manzoni",
+        32
+      ],
+      [
+        "e la",
+        30
+      ]
+    ],
+    "n_types": 7548
+  },
+  "French": {
+    "series": "french",
+    "H_word": 9.626,
+    "H_cond": 4.103,
+    "H_cond_shuffled": 4.701,
+    "H_cond_shuffled_sd": 0.00586,
+    "n_reps": 200,
+    "order_info_bits": 0.597,
+    "order_info_z": 102.0,
+    "order_frac": 0.062,
+    "adjacent_repeat_rate": 0.0005,
+    "top_bigrams": [
+      [
+        "de l",
+        156
+      ],
+      [
+        "de la",
+        124
+      ],
+      [
+        "d un",
+        88
+      ],
+      [
+        "\u00e0 la",
+        81
+      ],
+      [
+        "je ne",
+        73
+      ],
+      [
+        "d une",
+        68
+      ],
+      [
+        "\u00e0 l",
+        65
+      ],
+      [
+        "ned land",
+        62
+      ]
+    ],
+    "n_types": 5699
+  },
+  "Latin (tech)": {
+    "series": "latin_tech",
+    "H_word": 11.57,
+    "H_cond": 3.053,
+    "H_cond_shuffled": 3.192,
+    "H_cond_shuffled_sd": 0.00323,
+    "n_reps": 200,
+    "order_info_bits": 0.139,
+    "order_info_z": 43.0,
+    "order_frac": 0.012,
+    "adjacent_repeat_rate": 0.0,
+    "top_bigrams": [
+      [
+        "et in",
+        84
+      ],
+      [
+        "est et",
+        30
+      ],
+      [
+        "in libras",
+        26
+      ],
+      [
+        "ob id",
+        24
+      ],
+      [
+        "ex iis",
+        20
+      ],
+      [
+        "in aegypto",
+        18
+      ],
+      [
+        "quae in",
+        17
+      ],
+      [
+        "ex his",
+        15
+      ]
+    ],
+    "n_types": 10525
+  },
+  "Hebrew": {
+    "series": "hebrew",
+    "H_word": 10.512,
+    "H_cond": 3.325,
+    "H_cond_shuffled": 4.101,
+    "H_cond_shuffled_sd": 0.00436,
+    "n_reps": 200,
+    "order_info_bits": 0.775,
+    "order_info_z": 177.9,
+    "order_frac": 0.0738,
+    "adjacent_repeat_rate": 0.0007,
+    "top_bigrams": [
+      [
+        "\u05d9\u05d4\u05d5\u05d4 \u05d0\u05dc\u05d4\u05d9\u05da",
+        220
+      ],
+      [
+        "\u05d1\u05e0\u05d9 \u05d9\u05e9\u05e8\u05d0\u05dc",
+        115
+      ],
+      [
+        "\u05d0\u05ea \u05db\u05dc",
+        93
+      ],
+      [
+        "\u05d0\u05dc \u05de\u05e9\u05d4",
+        79
+      ],
+      [
+        "\u05d9\u05d4\u05d5\u05d4 \u05d0\u05dc",
+        70
+      ],
+      [
+        "\u05d5\u05d9\u05d0\u05de\u05e8 \u05d9\u05d4\u05d5\u05d4",
+        62
+      ],
+      [
+        "\u05d0\u05e9\u05e8 \u05dc\u05d0",
+        55
+      ],
+      [
+        "\u05e1 \u05db\u05d9",
+        48
+      ]
+    ],
+    "n_types": 6879
+  },
+  "monkey null": {
+    "series": "monkey",
+    "H_word": 13.197,
+    "H_cond": 1.65,
+    "H_cond_shuffled": 1.647,
+    "H_cond_shuffled_sd": 0.00152,
+    "n_reps": 200,
+    "order_info_bits": -0.003,
+    "order_info_z": -2.1,
+    "order_frac": -0.0002,
+    "adjacent_repeat_rate": 0.0011,
+    "top_bigrams": [
+      [
+        "m w",
+        5
+      ],
+      [
+        "z u",
+        5
+      ],
+      [
+        "y t",
+        5
+      ],
+      [
+        "q u",
+        4
+      ],
+      [
+        "j w",
+        4
+      ],
+      [
+        "o q",
+        4
+      ],
+      [
+        "w t",
+        4
+      ],
+      [
+        "y u",
+        4
+      ]
+    ],
+    "n_types": 21138
+  }
+}

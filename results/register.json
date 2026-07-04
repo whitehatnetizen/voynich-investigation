@@ -1,0 +1,176 @@
+{
+  "baseline": "latin",
+  "registers": [
+    "latin",
+    "latin_tech",
+    "latin_nomen"
+  ],
+  "reference": "voynich_eva",
+  "profiles": {
+    "latin": {
+      "wordlen_mean": 6.056,
+      "wordlen_std": 2.899,
+      "h1_char_bits": 3.9902,
+      "h2_cond_bits": 3.4512,
+      "heaps_beta": 0.7378,
+      "zipf_ols_slope": -0.8807,
+      "types_at_30k": 7509
+    },
+    "latin_tech": {
+      "wordlen_mean": 5.867,
+      "wordlen_std": 2.636,
+      "h1_char_bits": 4.0175,
+      "h2_cond_bits": 3.5195,
+      "heaps_beta": 0.7917,
+      "zipf_ols_slope": -0.7292,
+      "types_at_30k": 10525
+    },
+    "latin_nomen": {
+      "wordlen_mean": 9.422,
+      "wordlen_std": 2.457,
+      "h1_char_bits": 4.1434,
+      "h2_cond_bits": 3.4925,
+      "heaps_beta": 0.8518,
+      "zipf_ols_slope": -0.6445,
+      "types_at_30k": 11317
+    },
+    "voynich_eva": {
+      "wordlen_mean": 4.909,
+      "wordlen_std": 1.82,
+      "h1_char_bits": 3.8599,
+      "h2_cond_bits": 2.3962,
+      "heaps_beta": 0.7536,
+      "zipf_ols_slope": -0.892,
+      "types_at_30k": 6789
+    }
+  },
+  "movement_from_baseline_toward_voynich": {
+    "latin_tech": {
+      "wordlen_mean": {
+        "baseline": 6.056,
+        "register": 5.867,
+        "voynich": 4.909,
+        "delta_from_baseline": -0.189,
+        "toward_voynich": true,
+        "gap_closed_frac": 0.165
+      },
+      "wordlen_std": {
+        "baseline": 2.899,
+        "register": 2.636,
+        "voynich": 1.82,
+        "delta_from_baseline": -0.263,
+        "toward_voynich": true,
+        "gap_closed_frac": 0.244
+      },
+      "h1_char_bits": {
+        "baseline": 3.9902,
+        "register": 4.0175,
+        "voynich": 3.8599,
+        "delta_from_baseline": 0.0273,
+        "toward_voynich": false,
+        "gap_closed_frac": -0.21
+      },
+      "h2_cond_bits": {
+        "baseline": 3.4512,
+        "register": 3.5195,
+        "voynich": 2.3962,
+        "delta_from_baseline": 0.0683,
+        "toward_voynich": false,
+        "gap_closed_frac": -0.065
+      },
+      "heaps_beta": {
+        "baseline": 0.7378,
+        "register": 0.7917,
+        "voynich": 0.7536,
+        "delta_from_baseline": 0.0539,
+        "toward_voynich": true,
+        "gap_closed_frac": 3.411
+      },
+      "zipf_ols_slope": {
+        "baseline": -0.8807,
+        "register": -0.7292,
+        "voynich": -0.892,
+        "delta_from_baseline": 0.1515,
+        "toward_voynich": false,
+        "gap_closed_frac": -13.407
+      },
+      "types_at_30k": {
+        "baseline": 7509,
+        "register": 10525,
+        "voynich": 6789,
+        "delta_from_baseline": 3016,
+        "toward_voynich": false,
+        "gap_closed_frac": -4.189
+      }
+    },
+    "latin_nomen": {
+      "wordlen_mean": {
+        "baseline": 6.056,
+        "register": 9.422,
+        "voynich": 4.909,
+        "delta_from_baseline": 3.366,
+        "toward_voynich": false,
+        "gap_closed_frac": -2.935
+      },
+      "wordlen_std": {
+        "baseline": 2.899,
+        "register": 2.457,
+        "voynich": 1.82,
+        "delta_from_baseline": -0.442,
+        "toward_voynich": true,
+        "gap_closed_frac": 0.41
+      },
+      "h1_char_bits": {
+        "baseline": 3.9902,
+        "register": 4.1434,
+        "voynich": 3.8599,
+        "delta_from_baseline": 0.1532,
+        "toward_voynich": false,
+        "gap_closed_frac": -1.176
+      },
+      "h2_cond_bits": {
+        "baseline": 3.4512,
+        "register": 3.4925,
+        "voynich": 2.3962,
+        "delta_from_baseline": 0.0413,
+        "toward_voynich": false,
+        "gap_closed_frac": -0.039
+      },
+      "heaps_beta": {
+        "baseline": 0.7378,
+        "register": 0.8518,
+        "voynich": 0.7536,
+        "delta_from_baseline": 0.114,
+        "toward_voynich": true,
+        "gap_closed_frac": 7.215
+      },
+      "zipf_ols_slope": {
+        "baseline": -0.8807,
+        "register": -0.6445,
+        "voynich": -0.892,
+        "delta_from_baseline": 0.2362,
+        "toward_voynich": false,
+        "gap_closed_frac": -20.903
+      },
+      "types_at_30k": {
+        "baseline": 7509,
+        "register": 11317,
+        "voynich": 6789,
+        "delta_from_baseline": 3808,
+        "toward_voynich": false,
+        "gap_closed_frac": -5.289
+      }
+    }
+  },
+  "wordlen_hist_rmse_to_voynich": {
+    "latin": 0.0502,
+    "latin_tech": 0.0395,
+    "latin_nomen": 0.1037
+  },
+  "caveats": [
+    "The clean within-Latin signal is the baseline->register delta on h2 and word length; the absolute distance to the Voynich's h2 (2.43) inherits the glyph-vs-letter segmentation asymmetry flagged in discriminators.py.",
+    "Registers are confounded with author/era/source (Caesar prose vs Pliny encyclopaedia vs a modern GBIF binomial checklist).",
+    "latin_nomen is a name LIST (each pair an independent binomial), not running text; that is the point (a labelling register), but it means cross-token bigrams join unrelated names.",
+    "This tests whether a register reproduces the Voynich's statistics, not whether the Voynich contains Latin."
+  ]
+}

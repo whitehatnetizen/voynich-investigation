@@ -1,0 +1,102 @@
+{
+  "english": {
+    "zipf_alpha": 1.1038,
+    "mandel_alpha": 1.1249,
+    "mandel_b": 3.1086,
+    "mandel_r2": 0.9739,
+    "mle_alpha": 1.9053,
+    "mle_alpha_freq": 1.9053,
+    "mle_zipf_dual": 1.1046,
+    "mle_xmin": 4.0
+  },
+  "french": {
+    "zipf_alpha": 0.9152,
+    "mandel_alpha": 0.9152,
+    "mandel_b": 0.0,
+    "mandel_r2": 0.9511,
+    "mle_alpha": 2.004,
+    "mle_alpha_freq": 2.004,
+    "mle_zipf_dual": 0.996,
+    "mle_xmin": 1.0
+  },
+  "spanish": {
+    "zipf_alpha": 0.9454,
+    "mandel_alpha": 0.9454,
+    "mandel_b": 0.0,
+    "mandel_r2": 0.9548,
+    "mle_alpha": 1.9747,
+    "mle_alpha_freq": 1.9747,
+    "mle_zipf_dual": 1.0259,
+    "mle_xmin": 1.0
+  },
+  "italian": {
+    "zipf_alpha": 0.8204,
+    "mandel_alpha": 0.8204,
+    "mandel_b": 0.0,
+    "mandel_r2": 0.9271,
+    "mle_alpha": 2.1435,
+    "mle_alpha_freq": 2.1435,
+    "mle_zipf_dual": 0.8745,
+    "mle_xmin": 1.0
+  },
+  "german": {
+    "zipf_alpha": 0.9669,
+    "mandel_alpha": 0.9677,
+    "mandel_b": 0.1415,
+    "mandel_r2": 0.9419,
+    "mle_alpha": 1.8848,
+    "mle_alpha_freq": 1.8848,
+    "mle_zipf_dual": 1.1301,
+    "mle_xmin": 3.0
+  },
+  "latin": {
+    "zipf_alpha": 0.8807,
+    "mandel_alpha": 0.8859,
+    "mandel_b": 1.4501,
+    "mandel_r2": 0.9559,
+    "mle_alpha": 2.0441,
+    "mle_alpha_freq": 2.0441,
+    "mle_zipf_dual": 0.9577,
+    "mle_xmin": 2.0
+  },
+  "voynich_eva": {
+    "zipf_alpha": 0.892,
+    "mandel_alpha": 0.892,
+    "mandel_b": 0.0,
+    "mandel_r2": 0.9121,
+    "mle_alpha": 1.8865,
+    "mle_alpha_freq": 1.8865,
+    "mle_zipf_dual": 1.128,
+    "mle_xmin": 2.0
+  },
+  "voynich_v101": {
+    "zipf_alpha": 0.8228,
+    "mandel_alpha": 0.8228,
+    "mandel_b": 0.0,
+    "mandel_r2": 0.8981,
+    "mle_alpha": 1.9402,
+    "mle_alpha_freq": 1.9402,
+    "mle_zipf_dual": 1.0636,
+    "mle_xmin": 2.0
+  },
+  "uniform_pool": {
+    "zipf_alpha": 0.1675,
+    "mandel_alpha": 0.2432,
+    "mandel_b": 50.0,
+    "mandel_r2": 0.8606,
+    "mle_alpha": 2.9035,
+    "mle_alpha_freq": 2.9035,
+    "mle_zipf_dual": 0.5253,
+    "mle_xmin": 18.0
+  },
+  "monkey": {
+    "zipf_alpha": 0.2597,
+    "mandel_alpha": 0.2597,
+    "mandel_b": 0.0,
+    "mandel_r2": 0.4796,
+    "mle_alpha": 2.6874,
+    "mle_alpha_freq": 2.6874,
+    "mle_zipf_dual": 0.5926,
+    "mle_xmin": 5.0
+  }
+}

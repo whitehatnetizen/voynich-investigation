@@ -1,0 +1,92 @@
+{
+  "english": {
+    "heaps_beta": 0.5947,
+    "vocab_at_30k": 3758,
+    "wordlen_mean": 4.385,
+    "wordlen_std": 2.446,
+    "h1_char_bits": 4.1839,
+    "h2_cond_bits": 3.6027,
+    "alphabet_size": 30
+  },
+  "french": {
+    "heaps_beta": 0.7011,
+    "vocab_at_30k": 5699,
+    "wordlen_mean": 4.612,
+    "wordlen_std": 2.853,
+    "h1_char_bits": 4.1868,
+    "h2_cond_bits": 3.5745,
+    "alphabet_size": 39
+  },
+  "spanish": {
+    "heaps_beta": 0.8404,
+    "vocab_at_30k": 5157,
+    "wordlen_mean": 4.345,
+    "wordlen_std": 2.517,
+    "h1_char_bits": 4.1689,
+    "h2_cond_bits": 3.4226,
+    "alphabet_size": 31
+  },
+  "italian": {
+    "heaps_beta": 0.7811,
+    "vocab_at_30k": 7548,
+    "wordlen_mean": 4.616,
+    "wordlen_std": 2.736,
+    "h1_char_bits": 4.0776,
+    "h2_cond_bits": 3.4858,
+    "alphabet_size": 42
+  },
+  "german": {
+    "heaps_beta": 0.6781,
+    "vocab_at_30k": 5280,
+    "wordlen_mean": 4.918,
+    "wordlen_std": 2.676,
+    "h1_char_bits": 4.1728,
+    "h2_cond_bits": 3.4322,
+    "alphabet_size": 35
+  },
+  "latin": {
+    "heaps_beta": 0.7378,
+    "vocab_at_30k": 7509,
+    "wordlen_mean": 6.056,
+    "wordlen_std": 2.899,
+    "h1_char_bits": 3.9902,
+    "h2_cond_bits": 3.4512,
+    "alphabet_size": 25
+  },
+  "latin_tech": {
+    "heaps_beta": 0.7917,
+    "vocab_at_30k": 10525,
+    "wordlen_mean": 5.867,
+    "wordlen_std": 2.636,
+    "h1_char_bits": 4.0175,
+    "h2_cond_bits": 3.5195,
+    "alphabet_size": 25
+  },
+  "latin_nomen": {
+    "heaps_beta": 0.8518,
+    "vocab_at_30k": 11317,
+    "wordlen_mean": 9.422,
+    "wordlen_std": 2.457,
+    "h1_char_bits": 4.1434,
+    "h2_cond_bits": 3.4925,
+    "alphabet_size": 26
+  },
+  "hebrew": {
+    "heaps_beta": 0.7701,
+    "vocab_at_30k": 6879,
+    "wordlen_mean": 3.79,
+    "wordlen_std": 1.255,
+    "h1_char_bits": 4.2427,
+    "h2_cond_bits": 3.8901,
+    "alphabet_size": 27
+  },
+  "voynich_eva": {
+    "heaps_beta": 0.7536,
+    "vocab_at_30k": 6789,
+    "wordlen_mean": 4.909,
+    "wordlen_std": 1.82,
+    "h1_char_bits": 3.8599,
+    "h2_cond_bits": 2.3962,
+    "alphabet_size": 25
+  }
+}

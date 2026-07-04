@@ -2,9 +2,10 @@
 
 *An account of how this project unfolded. Each step states a hypothesis in plain language, the test
 performed, the result, and the question that opened next. Numbers are the current (2026-07-04,
-post-review) values. Where an earlier number was corrected, the correction is noted. Source data:
-`results/*.json`. Full detail: `FINDINGS.md` and `review/FINDINGS-UPDATE-2026-07-04.md`. Collapsible
-blocks contain the core algorithms; complete scripts are in `scripts/`.*
+post-review) values. Where an earlier number was corrected, the correction is noted. Reference
+outputs: `results/*.json`. All external sources: `REFERENCES.md`. Collapsible blocks contain the
+core algorithms; complete scripts are in `scripts/`. An illustrated version of this narrative is
+published as this repository's GitHub Pages site.*
 
 The Voynich Manuscript is a roughly 240-page illustrated book in an unknown script that no one has
 read in 600 years. This project does not attempt to read it. It asks a narrower, answerable

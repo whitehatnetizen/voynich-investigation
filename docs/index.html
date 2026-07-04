@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voynich: the investigation, plate by plate</title>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#f0ede4; --graph:#33342f; --dim:#6a6a62; --line:#c9c4b4;
+    --sig:#d1571c; --cyan:#1a80b3; --olive:#77822f; --plum:#8c5f9e;
+    --paper:#f7f5ee;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bone); color:var(--graph);
+    font-family:'Barlow',system-ui,sans-serif; line-height:1.5; font-size:16px;}
+  .mono{font-family:'Martian Mono','SFMono-Regular',monospace;}
+  .caps{font-family:'Martian Mono',monospace; text-transform:uppercase; letter-spacing:.14em;}
+
+  /* ---- masthead ---- */
+  header.top{max-width:1080px; margin:0 auto; padding:40px 28px 8px;}
+  header.top .kicker{font-size:12px; color:var(--sig); letter-spacing:.22em;}
+  header.top h1{font-family:'Martian Mono',monospace; font-weight:700; font-size:30px;
+    letter-spacing:-.01em; margin:.35em 0 .15em; line-height:1.08;}
+  header.top p.lede{font-size:17px; max-width:60ch; color:#4a4a44;}
+  .titleblock{display:grid; grid-template-columns:repeat(4,1fr); max-width:1080px; margin:18px auto 0;
+    border:1.5px solid var(--graph); font-size:11px;}
+  .titleblock div{padding:7px 10px; border-right:1.5px solid var(--graph);}
+  .titleblock div:last-child{border-right:0;}
+  .titleblock .k{color:var(--dim); letter-spacing:.12em; display:block; font-size:9px; margin-bottom:2px;}
+
+  /* ---- contents rail ---- */
+  nav.toc{max-width:1080px; margin:22px auto 0; padding:0 28px; display:flex; flex-wrap:wrap; gap:6px;}
+  nav.toc a{font-family:'Martian Mono',monospace; font-size:10.5px; letter-spacing:.06em;
+    text-decoration:none; color:var(--graph); border:1px solid var(--line); padding:4px 8px;
+    background:var(--paper);}
+  nav.toc a:hover{border-color:var(--sig); color:var(--sig);}
+
+  /* ---- plate ---- */
+  main{max-width:1080px; margin:0 auto; padding:12px 28px 80px;}
+  .plate{position:relative; border:2px solid var(--graph); background:var(--paper);
+    margin:34px 0; padding:26px 26px 20px;}
+  .plate::before{content:""; position:absolute; inset:5px; border:1px solid var(--line); pointer-events:none;}
+  .plate>*{position:relative;}
+  .dwg{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap;
+    border-bottom:1.5px solid var(--graph); padding-bottom:8px; margin-bottom:16px;}
+  .dwg .lbl{font-family:'Martian Mono',monospace; font-size:12px; letter-spacing:.1em; font-weight:500;}
+  .dwg .sheet{font-family:'Martian Mono',monospace; font-size:10px; color:var(--dim);}
+
+  .hyp{border-left:3px solid var(--sig); background:rgba(209,87,28,.05); padding:10px 14px; margin:0 0 16px;}
+  .hyp .tag{font-family:'Martian Mono',monospace; font-size:10px; letter-spacing:.14em; color:var(--sig);
+    text-transform:uppercase; display:block; margin-bottom:3px;}
+  .hyp p{margin:0; font-size:16.5px;}
+
+  .row{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start;}
+  @media(max-width:760px){.row{grid-template-columns:1fr;}}
+  .block .tag{font-family:'Martian Mono',monospace; font-size:10px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--dim); display:block; margin:0 0 4px; border-top:1px solid var(--line);
+    padding-top:8px;}
+  .block.res .tag{color:var(--graph);}
+  .block p{margin:.2em 0 .7em; font-size:15px;}
+  .verdict{font-family:'Martian Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.06em;
+    padding:2px 7px; display:inline-block; margin-bottom:6px;}
+  .v-yes{background:var(--olive); color:#fff;}
+  .v-no{background:var(--sig); color:#fff;}
+  .v-mix{background:var(--cyan); color:#fff;}
+  .next{border-top:1.5px solid var(--graph); margin-top:14px; padding-top:10px; font-size:15px;}
+  .next .tag{font-family:'Martian Mono',monospace; font-size:10px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--sig);}
+
+  figure{margin:6px 0 0;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:'Martian Mono',monospace; font-size:9.5px; color:var(--dim);
+    letter-spacing:.05em; margin-top:5px; text-transform:uppercase;}
+  .formula{font-family:'Martian Mono',monospace; font-size:13px; background:var(--bone);
+    border:1px solid var(--line); padding:10px 12px; margin:8px 0; overflow-x:auto; white-space:nowrap;}
+  .formula .n{color:var(--dim); font-size:11px; white-space:normal;}
+
+  details.algo{border:1px solid var(--line); background:var(--bone); margin:14px 0 0;}
+  details.algo summary{cursor:pointer; font-family:'Martian Mono',monospace; font-size:10.5px;
+    letter-spacing:.08em; text-transform:uppercase; padding:8px 12px; color:var(--graph);
+    list-style:none; user-select:none;}
+  details.algo summary::-webkit-details-marker{display:none;}
+  details.algo summary::before{content:"+ "; color:var(--sig); font-weight:700;}
+  details.algo[open] summary::before{content:"\2212  ";}
+  details.algo summary:hover{color:var(--sig);}
+  details.algo pre{margin:0; padding:12px 14px; border-top:1px solid var(--line); overflow-x:auto;
+    font-family:'Martian Mono',monospace; font-size:11.5px; line-height:1.55; background:var(--paper);}
+  a.wk{color:inherit; text-decoration:none; border-bottom:1px dotted var(--cyan);}
+  a.wk:hover{color:var(--cyan); border-bottom-style:solid;}
+
+  .readings{border:1.5px solid var(--graph); margin-top:16px;}
+  .readings .h{background:var(--graph); color:var(--bone); font-family:'Martian Mono',monospace;
+    font-size:11px; letter-spacing:.12em; padding:6px 12px; text-transform:uppercase;}
+  .readings .r{display:grid; grid-template-columns:28px 1fr; gap:10px; padding:10px 12px; border-top:1px solid var(--line);}
+  .readings .r .num{font-family:'Martian Mono',monospace; font-weight:700; color:var(--sig);}
+  .conc ol{margin:.3em 0 .8em; padding-left:1.4em; font-size:15px;}
+  .conc ol li{margin:.45em 0;}
+  .conc ul{margin:.3em 0 .4em; padding-left:1.2em; font-size:15px; list-style:square;}
+  .conc ul li{margin:.4em 0;}
+
+  .refblock{max-width:1080px; margin:0 auto; padding:0 28px;}
+  ul.refs{margin:.2em 0 .4em; padding-left:1.2em; font-size:14px; list-style:square;}
+  ul.refs li{margin:.5em 0;}
+  ul.refs a{color:var(--cyan); text-decoration:none;}
+  ul.refs a:hover{text-decoration:underline;}
+  .refs-note{font-size:13px; color:var(--dim); margin:.6em 0 0;}
+  .repo-note{font-size:14.5px !important; border-top:1px solid var(--line); padding-top:10px; margin-top:12px;}
+
+  footer{max-width:1080px; margin:0 auto; padding:0 28px 70px; font-size:12px; color:var(--dim);}
+  footer .mono{font-size:11px;}
+  a.up{position:fixed; right:16px; bottom:16px; font-family:'Martian Mono',monospace; font-size:11px;
+    background:var(--graph); color:var(--bone); text-decoration:none; padding:7px 11px; border-radius:0;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+</style></head>
+<body>
+
+<header class="top" id="top">
+  <div class="kicker caps">Statistical characterisation · Beinecke MS 408</div>
+  <h1>The Voynich, plate by plate</h1>
+  <p class="lede">A statistical characterisation of the Voynich Manuscript's text: thirteen
+  hypothesis-driven steps, from a replication of a Zipf's-law test to a mechanical-generation
+  account of Voynichese. In short: the text's real anomalies are very low conditional character
+  entropy (h2 ≈ 2.4 bits vs 3.4–3.6 for languages) and too-uniform word length; a four-parameter
+  copy-and-mutate generator reproduces essentially the whole 17-metric statistical fingerprint;
+  the one structure it under-reproduces is page-level vocabulary organisation, so a formulaic,
+  low-information label layer is not excluded. No decoding is attempted. Each plate states a
+  hypothesis, the test, the result, and the question it opened next. Collapsible ALGORITHM blocks
+  hold the core code; dotted-underlined terms link to definitions.</p>
+  <p class="lede repo-note">All code, the transliteration inputs and the reference outputs are in
+  <a class="wk" href="https://github.com/Whitehatnetizen/voynich-investigation" target="_blank"
+  rel="noopener">this repository</a> (code MIT-licensed). The replication pipeline is in the
+  README; every external source, dataset and download is itemised in
+  <a class="wk" href="https://github.com/Whitehatnetizen/voynich-investigation/blob/main/REFERENCES.md"
+  target="_blank" rel="noopener">REFERENCES.md</a>, with the key items in the
+  <a class="wk" href="#refs">References</a> section at the end of this page.</p>
+</header>
+
+<nav class="toc mono" id="toc"></nav>
+
+<main id="main"></main>
+
+<div class="refblock">
+<section class="plate" id="refs">
+  <div class="dwg">
+    <span class="lbl caps">REFERENCES</span>
+    <span class="sheet">SOURCES · KEY ITEMS</span>
+  </div>
+  <ul class="refs">
+    <li>E. Wagha, <em>"Does the Voynich Manuscript pass the Zipf's Law test?"</em>, YouTube, 2026.
+      <a href="https://www.youtube.com/watch?v=ciRmkK9Hytg" target="_blank" rel="noopener">watch?v=ciRmkK9Hytg</a>
+      : the study Step 1 replicates; everything after extends it.</li>
+    <li>T. Timm and A. Schinner, <em>"A possible generating algorithm of the Voynich manuscript"</em>,
+      Cryptologia 44(1), 2019.
+      <a href="https://doi.org/10.1080/01611194.2019.1596999" target="_blank" rel="noopener">doi:10.1080/01611194.2019.1596999</a>
+      : the self-citation model tested in Step 8.</li>
+    <li>G. A. Miller, <em>"Some effects of intermittent silence"</em>, American Journal of Psychology
+      70(2), 1957: random typing produces a Zipf-like curve, the reason the monkey control matters.</li>
+    <li>Zandbergen–Landini EVA transliteration (ZL3b-n, IVTFF 2.0) and the v101 transliteration
+      (G. Claston), from <a href="http://www.voynich.nu/" target="_blank" rel="noopener">voynich.nu</a>
+      : the primary text and the robustness scheme.</li>
+    <li>Beinecke MS 408 digital facsimile, Beinecke Rare Book &amp; Manuscript Library, Yale
+      (public domain, IIIF):
+      <a href="https://collections.library.yale.edu/manifests/2002046.json" target="_blank" rel="noopener">IIIF manifest</a>.</li>
+    <li>Comparison corpora: six languages from
+      <a href="https://www.gutenberg.org/" target="_blank" rel="noopener">Project Gutenberg</a>;
+      Hebrew Torah via <a href="https://www.sefaria.org/" target="_blank" rel="noopener">Sefaria</a>;
+      Pliny's <em>Naturalis Historia</em> via
+      <a href="https://la.wikisource.org/" target="_blank" rel="noopener">Latin Wikisource</a>;
+      topical Latin via <a href="http://www.thelatinlibrary.com/" target="_blank" rel="noopener">The Latin Library</a>;
+      33k Linnaean binomials via the <a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF species API</a>;
+      Esperanto prose from Project Gutenberg.</li>
+  </ul>
+  <p class="refs-note">The complete list, with per-item provenance, licences and fetch scripts, is
+  <a class="wk" href="https://github.com/Whitehatnetizen/voynich-investigation/blob/main/REFERENCES.md"
+  target="_blank" rel="noopener">REFERENCES.md</a> in the repository.</p>
+</section>
+</div>
+
+<footer>
+  <p class="mono">VOYNICH INVESTIGATION ·
+  <a class="wk" href="https://github.com/Whitehatnetizen/voynich-investigation" target="_blank"
+  rel="noopener">github.com/Whitehatnetizen/voynich-investigation</a> · CODE MIT-LICENSED</p>
+  <p>Numbers are the current (2026-07-04, post-review) values against 200-shuffle real null
+  distributions. Throughout, <span class="mono">z</span> is the
+  <a class="wk" href="https://en.wikipedia.org/wiki/Standard_score" target="_blank" rel="noopener">standard
+  score</a>: the observed excess divided by the standard deviation of the null distribution, so
+  z=3 is about the conventional discovery threshold and z=78 is far beyond chance.
+  Where an earlier figure was corrected, the plate says so. Narrative source:
+  <span class="mono">STORY.md</span>; reference outputs: <span class="mono">results/*.json</span>;
+  sources: <span class="mono">REFERENCES.md</span> (all in the repository).
+  Transcription: Zandbergen–Landini EVA. Page images: Beinecke Rare Book &amp; Manuscript Library,
+  Yale (public domain, IIIF).</p>
+</footer>
+<a class="up mono" href="#top">↑ TOP</a>
+
+<script src="story.data.js"></script>
+<script src="story.render.js"></script>
+</body></html>

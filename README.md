@@ -1,5 +1,8 @@
 # Voynich Manuscript: a statistical characterisation
 
+**Illustrated walkthrough: <https://whitehatnetizen.github.io/voynich-investigation/>** (the whole
+investigation, plate by plate, with charts, collapsible algorithms and a conclusion sheet).
+
 A reproducible statistical study of the text of the Voynich Manuscript (Beinecke MS 408). It began
 as a replication of a YouTube video's Zipf's-law test and grew into a full characterisation of what
 *kind of thing* the text is. It does not attempt to read or decode the manuscript.
@@ -21,7 +24,8 @@ The full plain-language narrative, one hypothesis at a time, is in **[STORY.md](
 scripts/       all analysis code (Python), one concern per file
 data/voynich/  the Voynich transliteration inputs (public research data)
 results/       reference JSON outputs for the headline analyses (expected numbers)
-STORY.md       the investigation as a chain of hypotheses
+docs/          the illustrated walkthrough (served as the GitHub Pages site)
+STORY.md       the investigation as a chain of hypotheses (markdown source of the walkthrough)
 REFERENCES.md  every external source, dataset and download, with URLs
 ```
 

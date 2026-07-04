@@ -3,7 +3,7 @@
    collapsible algorithm blocks render from `algo` (trimmed from the real scripts). */
 window.PLATES = [
 {
-  dwg:"DWG 01 · ZIPF REPLICATION", sheet:"SHEET 1/13",
+  dwg:"PLATE 01 · ZIPF REPLICATION", sheet:"SHEET 1/13",
   hyp:"If the Voynich is real writing, its words should follow Zipf's law: the commonest word about twice the second, three times the third, the straight line every language shares on log-log axes.",
   test:"Counted every word, ranked by frequency, plotted rank against frequency on log-log axes beside six real languages and two controls: uniform-pool gibberish (1,000 equally-likely invented words, the source video's control) and a 'monkey text' of random letters with spaces.",
   verdict:"v-mix", verdictText:"VALIDATED, LOW POWER",
@@ -44,7 +44,7 @@ def build_monkey(rng, mean_len=5.0):
     return words[:N]`}]
 },
 {
-  dwg:"DWG 02 · NEAREST LANGUAGE", sheet:"SHEET 2/13",
+  dwg:"PLATE 02 · NEAREST LANGUAGE", sheet:"SHEET 2/13",
   hyp:"The exact bend of the rank-frequency curve is language-specific. The Voynich's curve should sit nearest whichever of the six languages it most resembles.",
   test:"Measured the distance from the Voynich curve to each language three ways: by exponent, by curve-shape error, and by distributional divergence.",
   verdict:"v-no", verdictText:"INCONCLUSIVE",
@@ -53,7 +53,7 @@ def build_monkey(rng, mean_len=5.0):
   fig:null
 },
 {
-  dwg:"DWG 03 · CHARACTER ENTROPY h2", sheet:"SHEET 3/13",
+  dwg:"PLATE 03 · CHARACTER ENTROPY h2", sheet:"SHEET 3/13",
   hyp:"If the surface statistics look normal, a deeper one may be abnormal: how predictable each character is from the one before it.",
   test:"Measured second-order character entropy h2 (uncertainty about the next glyph given the current one) and the spread of word lengths, for the Voynich and every language.",
   verdict:"v-yes", verdictText:"TWO ANOMALIES",
@@ -77,7 +77,7 @@ def build_monkey(rng, mean_len=5.0):
     return h1, h2, len(uni)`}]
 },
 {
-  dwg:"DWG 04 · REGISTER TEST", sheet:"SHEET 4/13",
+  dwg:"PLATE 04 · REGISTER TEST", sheet:"SHEET 4/13",
   hyp:"Technical writing has repetitive vocabulary. The right comparison is a herbal, not a novel, and against that the Voynich might look normal.",
   test:"Added three Latin registers: narrative prose (Caesar), technical botany (Pliny), and pure naming (33,000 Linnaean binomials). Re-measured h2 and word length.",
   verdict:"v-no", verdictText:"REFUTED",
@@ -87,7 +87,7 @@ def build_monkey(rng, mean_len=5.0):
     ["VOYNICH",2.40,true],["PROSE LATIN",3.45,false],["BOTANY LATIN",3.52,false],["PLANT NAMES",3.49,false]]}
 },
 {
-  dwg:"DWG 05 · CIPHER TESTS", sheet:"SHEET 5/13",
+  dwg:"PLATE 05 · CIPHER TESTS", sheet:"SHEET 5/13",
   hyp:"A real language run through a cipher would look alien on the surface but carry a recoverable signal underneath.",
   test:"Three tests: a substitution cipher (excluded by arithmetic, a glyph swap cannot change entropy); a verbose transform with abbreviation and affixes; and 'peeling' the Voynich's affixes to see if a language surfaces.",
   verdict:"v-no", verdictText:"NO SIMPLE CIPHER",
@@ -98,7 +98,7 @@ def build_monkey(rng, mean_len=5.0):
     ["decode(encipher(Latin)) → 23/25 glyphs","positive control: the method works when a real cipher is present"]]}
 },
 {
-  dwg:"DWG 06 · SLOT GRAMMAR", sheet:"SHEET 6/13",
+  dwg:"PLATE 06 · SLOT GRAMMAR", sheet:"SHEET 6/13",
   hyp:"The words are built from a small kit of fixed pieces in fixed positions, a slot grammar, so the next glyph is nearly determined by the current one.",
   test:"Measured per-position glyph menus, the coverage of a small affix kit, and whether a simple Markov glyph-transition model reproduces the low h2.",
   verdict:"v-yes", verdictText:"VALIDATED, WITH A REMAINDER",
@@ -108,7 +108,7 @@ def build_monkey(rng, mean_len=5.0):
     ["VOYNICH",0.79,true],["GERMAN",0.53,false],["LATIN",0.47,false],["ENGLISH",0.34,false]]}
 },
 {
-  dwg:"DWG 07 · WORD-ORDER INFORMATION", sheet:"SHEET 7/13",
+  dwg:"PLATE 07 · WORD-ORDER INFORMATION", sheet:"SHEET 7/13",
   hyp:"In real language the previous word strongly predicts the next. The Voynich should show the same if it carries sentences.",
   test:"Measured word-order information: how much the previous word reduces uncertainty about the next, with a shuffle control to cancel sample-size bias.",
   verdict:"v-no", verdictText:"ALMOST NONE",
@@ -133,7 +133,7 @@ def build_monkey(rng, mean_len=5.0):
     return H_shuf - H_cond, (H_shuf - H_cond) / sd  # bits, z`}]
 },
 {
-  dwg:"DWG 08 · SELF-CITATION", sheet:"SHEET 8/13",
+  dwg:"PLATE 08 · SELF-CITATION", sheet:"SHEET 8/13",
   hyp:"Each word is produced by copying a recent word and rewriting it with a small change (Timm & Schinner 2019). A word should resemble a recent predecessor more than chance allows, more so for nearer ones.",
   test:"For each word, found the minimum edit distance to the previous few words, compared against a shuffle of the same tokens (identical vocabulary, sequential copying destroyed). Tracked three signatures: below-shuffle nearest distance, an excess of near-identical neighbours, and a locality gradient.",
   verdict:"v-yes", verdictText:"LARGEST EFFECTS",
@@ -163,7 +163,7 @@ excess = mean(null) - real          # positive = copying
 z = excess / std(null)`}]
 },
 {
-  dwg:"DWG 09 · GENERATOR TOURNAMENT", sheet:"SHEET 9/13",
+  dwg:"PLATE 09 · GENERATOR TOURNAMENT", sheet:"SHEET 9/13",
   hyp:"A single generator (length-locked word-forms + copy-and-mutate + a mild per-section vocabulary bias) reproduces all the statistics, with no meaning anywhere.",
   test:"A tournament: specialist generators against unified ones, scored on the same 17-metric fingerprint. Copy parameters tuned only on the copying metrics, so the Zipf slope and vocabulary size are free to emerge or not.",
   verdict:"v-yes", verdictText:"MECHANICAL IS SUFFICIENT",
@@ -199,7 +199,7 @@ z = excess / std(null)`}]
     return out`}]
 },
 {
-  dwg:"DWG 10 · LONG-RANGE INFORMATION", sheet:"SHEET 10/13",
+  dwg:"PLATE 10 · LONG-RANGE INFORMATION", sheet:"SHEET 10/13",
   hyp:"If it is meaningless local generation, mutual information between words collapses within a few words. If it carries content, information persists across hundreds of words.",
   test:"Measured mutual information between words d apart, split into repetition (same word) and association (different words predicting each other), out to 800 words, against a 200-shuffle null.",
   verdict:"v-mix", verdictText:"POSITIVE FOR CONTENT",
@@ -227,7 +227,7 @@ z = excess / std(null)`}]
 # at zero. (The retracted "~75%" came from clipping at 0.)`}]
 },
 {
-  dwg:"DWG 11 · RED-TEAM + RE-AUDIT", sheet:"SHEET 11/13",
+  dwg:"PLATE 11 · RED-TEAM + RE-AUDIT", sheet:"SHEET 11/13",
   hyp:"Our conclusions might be artefacts of weak controls.",
   test:"A six-front adversarial red-team, then a full statistical review that found the project leaned on 2-to-3-shuffle nulls and re-ran everything against 200-shuffle real null distributions with z-scores.",
   verdict:"v-mix", verdictText:"MAIN FINDINGS HOLD",
@@ -240,7 +240,7 @@ z = excess / std(null)`}]
     ["Topical clustering","0.091","0.051"]]}
 },
 {
-  dwg:"DWG 12 · FALSIFICATION TESTS", sheet:"SHEET 12/13",
+  dwg:"PLATE 12 · FALSIFICATION TESTS", sheet:"SHEET 12/13",
   hyp:"Six tests, each specified in advance with an outcome that would count against the leading hypothesis or find meaning where we had not looked.",
   test:"T1 copy source (line above vs stream); T3 syntax hunt + affix agreement; T4 scribal hands; T8 zodiac label recurrence; T6 a constructed-language control (Esperanto); T2 label reuse across sections.",
   verdict:"v-mix", verdictText:"ONE REAL REFINEMENT",
@@ -270,7 +270,7 @@ z = excess / std(null)`}]
     return real - mean(null), (real - mean(null)) / std(null)`}]
 },
 {
-  dwg:"DWG 13 · THE GAP + THE DECISIVE TEST", sheet:"SHEET 13/13",
+  dwg:"PLATE 13 · THE GAP + THE DECISIVE TEST", sheet:"SHEET 13/13",
   hyp:"The mechanical account is sufficient for every internal statistic. The one place it under-reproduces is page-level structure: long-range association tracking the pictures, and folio-to-folio vocabulary drift.",
   test:"Two moves at that gap: the label-to-image test (a full-manuscript viewer pairing Beinecke page scans, 226/227 folios, with the transcription, read directly); and an illustration-conditioned generator whose method depends on the page's illustrated class.",
   verdict:"v-mix", verdictText:"CATALOGUE LAYOUT, FILLER CONTENT",
@@ -280,7 +280,7 @@ z = excess / std(null)`}]
     ["VOYNICH",0.21,true],["PAGE-CONDITIONED",0.03,false],["SECTION-ONLY (U2)",-0.12,false]]}
 },
 {
-  dwg:"DWG 14 · CONCLUSION", sheet:"SHEET 14/14", kind:"conclusion",
+  dwg:"PLATE 14 · CONCLUSION", sheet:"SHEET 14/14", kind:"conclusion",
   established:[
     "The text is statistically anomalous in exactly two places: conditional character entropy h2 ≈ 2.4 bits (languages 3.42 to 3.60) and word-length spread σ = 1.82 (languages 2.4 to 2.9). The other headline statistics follow from these plus the copying mechanism.",
     "The anomalies are not a register effect (Latin prose, botanical and naming registers all sit near h2 3.5), not a simple cipher (substitution is excluded by arithmetic; verbose transforms implicate the transform, not a source language; a positive control shows the method does recover genuinely enciphered Latin), and not inventedness with meaning (Esperanto lands with the natural languages).",

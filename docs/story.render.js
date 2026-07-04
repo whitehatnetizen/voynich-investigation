@@ -216,7 +216,7 @@
     const sec=el2("section","plate");sec.id="s"+(i+1);
     const dwg=el2("div","dwg");
     dwg.appendChild(el2("span","lbl caps",esc(p.dwg)));
-    dwg.appendChild(el2("span","sheet","SHEET "+(i+1)+"/"+PLATES.length));
+    dwg.appendChild(el2("span","sheet",((i+1)<10?"0":"")+(i+1)+" / "+PLATES.length));
     sec.appendChild(dwg);
     if(p.kind==="conclusion"){
       const row=el2("div","row conc");

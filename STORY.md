@@ -258,6 +258,19 @@ Voynich's word-order information. No measured text combines Voynich-level copy s
 the low-entropy, near-zero-order profile. A single process accounts for the slot grammar, the
 near-zero word order and the local repetition: copy a nearby word and mutate it.
 
+**Is this just reduplication?** Real languages double words on purpose (Malay plurals, liturgical
+emphasis), and the manuscript has famous runs like daiin daiin and families like qokedy /
+qokeedy / qokeddy. Three answers. First, the shuffle absorbs vocabulary: a word-stock full of
+related forms scores zero by construction; only local placement with a fading gradient counts,
+and no fixed vocabulary produces that. Second, the ratio runs the wrong way for doubling: exact
+adjacent repeats are 0.85% of tokens (excess +0.005 over shuffle) while one-edit-apart adjacent
+pairs run at 3.8% with four times the excess; deliberate reduplication predicts exact copies
+dominating, and collapsing every exact doublet leaves the headline statistics unchanged. Third,
+repeated strokes inside words (aiiv, aiin) are a transcription question, and regrouping minim
+runs as single glyphs leaves the entropy anomaly intact. Open caveat: no Austronesian
+reduplicating-language corpus has been run; the paradigm and litany controls cover the mechanism
+but not that exact case.
+
 <details>
 <summary>Algorithm: the shuffle-controlled copy test (scripts/self_citation.py)</summary>
 

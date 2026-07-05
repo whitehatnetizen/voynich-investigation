@@ -1,0 +1,224 @@
+{
+  "_meta": {
+    "n": 30000,
+    "h2": "conditional bigram entropy across the concatenated token stream, identical to generate_model.evaluate h2_cross_bits",
+    "hawaiian": "Ka Baibala Hemolele 1868 (eBible.org, public domain), USFM stripped, scripture register, small alphabet floor probe",
+    "exclusions": "works under 30k tokens skipped; Latin works with inline English above 0.5% marker frequency refused"
+  },
+  "languages": {
+    "english": {
+      "works": [
+        {
+          "title": "Pride and Prejudice - Austen",
+          "sources": [
+            "gut:1342"
+          ],
+          "tokens": 128559,
+          "h2": 3.603
+        },
+        {
+          "title": "Moby-Dick - Melville",
+          "sources": [
+            "gut:2701"
+          ],
+          "tokens": 219032,
+          "h2": 3.605
+        },
+        {
+          "title": "The Adventures of Sherlock Holmes - Doyle",
+          "sources": [
+            "gut:1661"
+          ],
+          "tokens": 105848,
+          "h2": 3.598
+        }
+      ],
+      "mean": 3.602,
+      "min": 3.598,
+      "max": 3.605,
+      "n_works": 3
+    },
+    "french": {
+      "works": [
+        {
+          "title": "Vingt mille lieues sous les mers - Verne",
+          "sources": [
+            "gut:5097"
+          ],
+          "tokens": 148917,
+          "h2": 3.574
+        },
+        {
+          "title": "Le tour du monde en 80 jours - Verne",
+          "sources": [
+            "gut:800"
+          ],
+          "tokens": 72384,
+          "h2": 3.592
+        },
+        {
+          "title": "Les trois mousquetaires - Dumas",
+          "sources": [
+            "gut:13951"
+          ],
+          "tokens": 239953,
+          "h2": 3.523
+        }
+      ],
+      "mean": 3.563,
+      "min": 3.523,
+      "max": 3.592,
+      "n_works": 3
+    },
+    "spanish": {
+      "works": [
+        {
+          "title": "Don Quijote - Cervantes",
+          "sources": [
+            "gut:2000"
+          ],
+          "tokens": 383633,
+          "h2": 3.423
+        },
+        {
+          "title": "Niebla - Unamuno",
+          "sources": [
+            "gut:49836"
+          ],
+          "tokens": 57343,
+          "h2": 3.527
+        },
+        {
+          "title": "Sangre y arena - Blasco Ibanez",
+          "sources": [
+            "gut:26983"
+          ],
+          "tokens": 111634,
+          "h2": 3.461
+        }
+      ],
+      "mean": 3.47,
+      "min": 3.423,
+      "max": 3.527,
+      "n_works": 3
+    },
+    "italian": {
+      "works": [
+        {
+          "title": "I promessi sposi - Manzoni",
+          "sources": [
+            "gut:45334"
+          ],
+          "tokens": 239302,
+          "h2": 3.486
+        },
+        {
+          "title": "L'amore che torna - Zuccoli",
+          "sources": [
+            "gut:38720"
+          ],
+          "tokens": 115397,
+          "h2": 3.425
+        },
+        {
+          "title": "Damiano - Percoto",
+          "sources": [
+            "gut:25178"
+          ],
+          "tokens": 132706,
+          "h2": 3.427
+        }
+      ],
+      "mean": 3.446,
+      "min": 3.425,
+      "max": 3.486,
+      "n_works": 3
+    },
+    "german": {
+      "works": [
+        {
+          "title": "Effi Briest - Fontane",
+          "sources": [
+            "gut:5323"
+          ],
+          "tokens": 95624,
+          "h2": 3.432
+        },
+        {
+          "title": "Buddenbrooks - Mann",
+          "sources": [
+            "gut:34811"
+          ],
+          "tokens": 230254,
+          "h2": 3.483
+        },
+        {
+          "title": "Aus dem Leben eines Taugenichts - Eichendorff",
+          "sources": [
+            "gut:35312"
+          ],
+          "tokens": 31388,
+          "h2": 3.38
+        }
+      ],
+      "mean": 3.432,
+      "min": 3.38,
+      "max": 3.483,
+      "n_works": 3
+    },
+    "latin": {
+      "works": [
+        {
+          "title": "De Bello Gallico - Caesar",
+          "sources": [
+            "gut:218",
+            "gut:18837"
+          ],
+          "tokens": 51425,
+          "h2": 3.451
+        },
+        {
+          "title": "Catilina + Iugurtha - Sallust",
+          "sources": [
+            "tll:sall.1.html",
+            "tll:sall.2.html"
+          ],
+          "tokens": 31934,
+          "h2": 3.47
+        },
+        {
+          "title": "De Officiis - Cicero",
+          "sources": [
+            "tll:cicero/off1.shtml",
+            "tll:cicero/off2.shtml",
+            "tll:cicero/off3.shtml"
+          ],
+          "tokens": 34245,
+          "h2": 3.45
+        }
+      ],
+      "mean": 3.457,
+      "min": 3.45,
+      "max": 3.47,
+      "n_works": 3
+    }
+  },
+  "band_all_works": {
+    "min": 3.38,
+    "max": 3.605,
+    "mean": 3.495,
+    "sd": 0.073,
+    "n_works": 18
+  },
+  "hawaiian": {
+    "tokens": 1049952,
+    "h2": 2.849,
+    "alphabet": 21,
+    "core12_share": 0.976,
+    "alphabet_note": "21 distinct letters appear but 97.6% of the stream is the 12 native Hawaiian letters; the remainder is loan letters inside transliterated biblical names (r,b,s,t,v,d,g,z)"
+  },
+  "voynich": {
+    "h2": 2.396,
+    "n": 30000
+  }
+}

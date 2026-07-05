@@ -67,6 +67,25 @@ second is kept for bootstrap resampling. Plain-text URL pattern:
   `https://api.gbif.org/v1/species/search` (Plantae, backbone key 6). GBIF data are openly licensed.
 - **Esperanto (a meaningful constructed-language control)** — public-domain Esperanto prose from
   Project Gutenberg (Fundamenta Krestomatio and others). Public-domain plain text.
+- **Litanies (fixed-response genre control for the copy signatures)** — the Litany of the Saints
+  and the Litany of the Sacred Heart (traditional Latin texts as transcribed at sanctamissa.pl)
+  and the Litany of Loreto (Latin text as printed in its Wikipedia article), concatenated in
+  `data/texts/litany/raw/litanies.txt` and scored by `t9_paradigm_controls.py`. The paradigm-table
+  control in the same script is generated programmatically from real Latin stems and endings
+  (vocabulary listed in the script).
+- **Extended entropy band (three works per language)** — additional public-domain Project Gutenberg
+  prose (Doyle, Dumas, Blasco Ibáñez, Percoto, Mann, Eichendorff) plus Sallust's monographs and
+  Cicero's *De Officiis* from The Latin Library (Gutenberg's Latin school editions carry inline
+  English notes and are refused by a contamination check). Fetched by `entropy_band.py`; exact IDs
+  and URLs in the script.
+- **Hawaiian (small-alphabet floor probe)** — *Ka Baibala Hemolele* (1868 Hawaiian Bible), USFM
+  plain text from eBible.org (<https://ebible.org/details.php?id=haw1868>), public domain. Fetched
+  and USFM-stripped by `entropy_band.py`.
+- **Abbreviated medieval Latin (diplomatic register probe)** — CREMMA-Medieval-LAT (HTR-United):
+  ground-truth transcriptions of 21 Latin manuscripts, 12th-15th century, graphemic transcription
+  with abbreviations and abbreviative signs preserved.
+  <https://github.com/HTR-United/CREMMA-Medieval-LAT> (CC-BY 4.0; see its CITATION.cff). Clone
+  into `data/reference/` and run `medieval_latin_h2.py`; it is not redistributed here.
 
 ## Key prior work referenced in the analysis
 

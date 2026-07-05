@@ -95,6 +95,9 @@ the published numbers.
 | `t8_census_stats.py` | 14 | the four pre-registered label-image census rules (runs as-is: the census CSVs ship in `data/voynich/census/`) |
 | `timm_generator_eval.py` | 15 | scores Timm's published generator sample through this harness (clone github.com/TorstenTimm/SelfCitationTextgenerator into `data/reference/` first) |
 | `u3_generator.py` | 16 | U2 plus five transplanted rules; single-move ablations for the affix agreement |
+| `t9_paradigm_controls.py` | 8 | hostile genre controls for the copy signatures: a Latin declension-table text and a litany (`data/texts/litany/`), full battery size-matched |
+| `entropy_band.py` | 3 | widens the h2 reference band to 18 works (3 per language) plus a Hawaiian floor probe (fetches Gutenberg + eBible.org sources itself) |
+| `medieval_latin_h2.py` | 3 | h2 of abbreviation-preserving medieval Latin (clone github.com/HTR-United/CREMMA-Medieval-LAT into `data/reference/` first) |
 
 Determinism: every stochastic step is seeded (`SEED = 1492`), so results are exactly reproducible.
 Null distributions use 200 seeded shuffles (`random.Random(SEED + rep)`) and report z-scores against

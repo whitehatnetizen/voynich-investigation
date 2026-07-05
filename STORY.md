@@ -103,9 +103,15 @@ next glyph given the current one. We also measured the spread of word lengths, f
 every language.
 
 **Result: two anomalies outside the language range.** The Voynich's h2 is about 2.4 bits, against
-3.42 to 3.60 for the reference languages: its glyphs are far more predictable than any of the real
-scripts measured. Its word lengths are also unusually uniform, with a standard deviation of 1.82
-against 2.4 to 2.9 for languages. These two facts are what the rest of the project has to explain.
+3.38 to 3.61 for the reference languages (eighteen works, three per language): its glyphs are far
+more predictable than any of the real scripts measured. Two probes chosen to close that gap from
+above widen it instead. Hawaiian, whose twelve-letter alphabet makes it the natural script most
+likely to score low, reaches 2.85 on the 1868 Hawaiian Bible, still 0.45 bits above the Voynich.
+And medieval Latin transcribed with its scribal abbreviations preserved (CREMMA-Medieval-LAT, 21
+manuscripts) scores 3.9 to 4.4, above the printed-prose band, because abbreviation removes exactly
+the predictable letters. The Voynich's word lengths are also unusually uniform, with a standard
+deviation of 1.82 against 2.4 to 2.9 for languages. These two facts are what the rest of the
+project has to explain.
 
 <details>
 <summary>Algorithm: second-order character entropy h2 (scripts/discriminators.py)</summary>
@@ -244,7 +250,12 @@ more similar.
 margins: a nearest-distance excess at z of about 78, a copy spike at z of about 50, and a
 locality gradient at z of about 23, all against 200-shuffle null distributions. Hebrew, repetitive
 scripture in a short abjad, matches the exact-repeat part but not the local gradient, so the
-Voynich's copying is specifically local. A single process accounts for the slot grammar, the
+Voynich's copying is specifically local. Two genre controls built to fire the signatures by
+construction confirm they are not the whole fingerprint: a Latin declension-table text fires all
+three at roughly ten times the Voynich's magnitude while keeping Latin-level entropy and 88%
+unique word forms, and a litany fires the exact-repeat spike while carrying thirty times the
+Voynich's word-order information. No measured text combines Voynich-level copy signatures with
+the low-entropy, near-zero-order profile. A single process accounts for the slot grammar, the
 near-zero word order and the local repetition: copy a nearby word and mutate it.
 
 <details>
@@ -289,10 +300,11 @@ parameters were tuned only on the copying metrics, so traits like the Zipf slope
 are free to emerge or not.
 
 **Result: mechanical generation is sufficient.** The four-parameter unified generator reproduces the
-whole fingerprint (combined error 0.179) better than any specialist (best specialist 0.274), and the
-Zipf slope, type count and Heaps growth emerge without being fitted (generator Zipf -0.87 against
-Voynich -0.89). Nothing in the internal statistics requires meaning. Sufficiency is not necessity,
-so a highly formulaic real text is not excluded, but no meaning is needed.
+whole fingerprint (combined error 0.179) better than any specialist (best specialist 0.274). Scored
+only on the metrics no model was tuned to, the stricter comparison, its margin widens: 0.219 against
+0.361. The Zipf slope, type count and Heaps growth emerge without being fitted (generator Zipf -0.87
+against Voynich -0.89). Nothing in the internal statistics requires meaning. Sufficiency is not
+necessity, so a highly formulaic real text is not excluded, but no meaning is needed.
 
 <details>
 <summary>Algorithm: the unified generator U2 (scripts/generation_tournament.py)</summary>
@@ -398,7 +410,9 @@ nulls, and re-ran everything against 200-shuffle real null distributions with z-
 
 **Result: the main findings hold; several sub-claims were corrected.** The low h2, the narrow word
 length, and the self-citation copy signal all hold under attack. The self-citation signal is absent
-from real prose, from a real Latin word list, and from enciphered Latin. Several figures were revised
+from real prose, from a real Latin word list, and from enciphered Latin; the genre texts that do
+fire individual copy signatures (a declension table, a litany; Step 8) match nothing else in the
+profile. Several figures were revised
 downward: the "~75%" long-range reproduction became "about a third" (Step 10), a "faint
 stable-collocation layer" was retracted at about 1 sigma, and a "5% Currier-dialect" component of
 the structure became statistically zero, and the topical-clustering signal halved under a

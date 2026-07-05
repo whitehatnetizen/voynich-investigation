@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "source": "CREMMA-Medieval-LAT (HTR-United), 21 mss, 12th-15th c., graphemic transcription with abbreviations preserved",
+    "files": 121,
+    "n": 30000,
+    "note": "h2 = conditional bigram entropy over the concatenated token stream, same formula as the band; symbol conventions per docstring"
+  },
+  "codepoints": {
+    "n_tokens_total": 58016,
+    "n_scored": 30000,
+    "h2": 4.24,
+    "alphabet": 71,
+    "wordlen_mean": 4.095,
+    "wordlen_std": 2.399
+  },
+  "clusters": {
+    "n_tokens_total": 58016,
+    "n_scored": 30000,
+    "h2": 4.396,
+    "alphabet": 578,
+    "wordlen_mean": 3.813,
+    "wordlen_std": 2.318
+  },
+  "stripped": {
+    "n_tokens_total": 55061,
+    "n_scored": 30000,
+    "h2": 3.895,
+    "alphabet": 42,
+    "wordlen_mean": 3.996,
+    "wordlen_std": 2.271
+  }
+}

@@ -135,6 +135,17 @@
         `<div class="mono" style="color:var(--sig);font-weight:700">${esc(now)}</div>`;t.appendChild(r);});
     return t;}
 
+  // generic titled table: {title, cols:"1fr 90px ...", rows:[[cell,...]]}; last cell rendered bold+signal
+  function rulesTable(o){const t=document.createElement("div");t.className="readings";
+    t.innerHTML='<div class="h">'+esc(o.title)+'</div>';
+    o.rows.forEach(cells=>{const r=document.createElement("div");r.className="r";
+      r.style.gridTemplateColumns=o.cols;
+      r.innerHTML=cells.map((c,i)=>i===cells.length-1
+        ?`<div class="mono" style="color:var(--sig);font-weight:700">${esc(c)}</div>`
+        :(i===0?`<div class="mono" style="font-weight:700">${esc(c)}</div>`:`<div>${esc(c)}</div>`)).join("");
+      t.appendChild(r);});
+    return t;}
+
   function esc(s){return String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
 
   /* Wikipedia links for technical terms. Terms are matched against the ESCAPED text
@@ -198,6 +209,7 @@
     if(fig.type==="decay")return decaySketch();
     if(fig.type==="formula")return formulaBlock(fig.lines);
     if(fig.type==="corrections")return correctionsTable(fig.data);
+    if(fig.type==="rules")return rulesTable(fig);
     return null;
   }
 
@@ -226,7 +238,8 @@
         p.open.map(s=>'<li>'+lk(s)+'</li>').join("")+'</ul>');
       row.appendChild(left);row.appendChild(right);
       sec.appendChild(row);
-      sec.appendChild(el2("div","next",'<span class="tag">Bottom line</span> '+lk(p.next)));
+      sec.appendChild(el2("div","next",'<span class="tag">Conclusion</span>'+
+        p.next.split("\n\n").map(x=>'<p>'+lk(x)+'</p>').join("")));
       return sec;
     }
     const hyp=el2("div","hyp",'<span class="tag">Hypothesis</span><p>'+lk(p.hyp)+'</p>');
@@ -234,11 +247,18 @@
     const row=el2("div","row");
     const left=el2("div","block",'<span class="tag">How we tested it</span><p>'+lk(p.test)+'</p>');
     const fig=figure(p.fig); if(fig)left.appendChild(fig);
+    const fig2=figure(p.fig2); if(fig2)left.appendChild(fig2);
     const right=el2("div","block res",'<span class="tag">Result</span>'+
       '<span class="verdict '+p.verdict+'">'+esc(p.verdictText)+'</span><p>'+lk(p.res)+'</p>');
     if(i===9)right.appendChild(readingsBlock());
     row.appendChild(left);row.appendChild(right);
     sec.appendChild(row);
+    if(p.plain)p.plain.forEach(a=>{
+      const d=document.createElement("details");d.className="algo plain";
+      const su=document.createElement("summary");su.textContent="IN PLAIN TERMS · "+a.t;d.appendChild(su);
+      const body=document.createElement("div");body.className="plainbody";body.innerHTML=a.h;d.appendChild(body);
+      sec.appendChild(d);
+    });
     if(p.algo)p.algo.forEach(a=>{
       const d=document.createElement("details");d.className="algo";
       const su=document.createElement("summary");su.textContent="ALGORITHM · "+a.t;d.appendChild(su);

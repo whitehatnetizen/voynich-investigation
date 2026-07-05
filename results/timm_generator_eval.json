@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "n_tokens": 10832,
+    "timm_source": "shipped sample, pseudo RNG seed 19",
+    "u2_config": {
+      "W": 10,
+      "p_copy": 0.2,
+      "overlap": 0.68
+    },
+    "note": "all series size-matched at n; agreement = suffix2->prefix2 MI, within-line shuffle null, edit-distance<=1 pairs excluded"
+  },
+  "Voynich": {
+    "h2_cross": 2.404,
+    "wordlen_mean": 4.685,
+    "wordlen_std": 1.803,
+    "zipf_slope": -0.83,
+    "n_types": 3154,
+    "sc_d1": 0.0349,
+    "sc_grad": 0.0858,
+    "order_frac": 0.0102,
+    "adj_repeat": 0.0091,
+    "affix_agreement": {
+      "n_pairs": 8746,
+      "mi_real": 0.5391,
+      "mi_shuffle": 0.394,
+      "excess": 0.1452,
+      "z": 22.9
+    }
+  },
+  "Timm sample": {
+    "h2_cross": 2.208,
+    "wordlen_mean": 4.705,
+    "wordlen_std": 1.56,
+    "zipf_slope": -0.978,
+    "n_types": 2228,
+    "sc_d1": 0.0644,
+    "sc_grad": 0.0226,
+    "order_frac": 0.0106,
+    "adj_repeat": 0.0095,
+    "affix_agreement": {
+      "n_pairs": 9060,
+      "mi_real": 0.2247,
+      "mi_shuffle": 0.1963,
+      "excess": 0.0284,
+      "z": 5.4
+    }
+  },
+  "our U2": {
+    "h2_cross": 2.444,
+    "wordlen_mean": 4.91,
+    "wordlen_std": 1.841,
+    "zipf_slope": -0.788,
+    "n_types": 3421,
+    "sc_d1": 0.0258,
+    "sc_grad": 0.0717,
+    "order_frac": 0.0007,
+    "adj_repeat": 0.0051,
+    "affix_agreement": {
+      "n_pairs": 9424,
+      "mi_real": 0.3967,
+      "mi_shuffle": 0.4042,
+      "excess": -0.0075,
+      "z": -1.1
+    }
+  }
+}

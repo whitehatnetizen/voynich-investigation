@@ -88,6 +88,13 @@ the published numbers.
 | `self_citation.py` | 8 | copy-and-mutate signal vs a 200-shuffle null |
 | `generation_tournament.py` | 9 | one mechanical generator scored on 17 metrics |
 | `long_range_mi.py` | 10 | cross-word mutual information out to 800 words |
+| `t3_syntax_hunt.py` | 12 | word order per subset; cross-word affix agreement |
+| `parse_voynich_structured.py` | 12-16 | builds the folio/line-structured token records |
+| `fetch_census_images.py` | 14 | fetches the Beinecke IIIF images for the label census |
+| `parse_zodiac_loci.py`, `build_zodiac_census.py`, `join_nymph_matches.py` | 14 | build the census CSVs (`data/voynich/census/`) from the transcription plus visual reads |
+| `t8_census_stats.py` | 14 | the four pre-registered label-image census rules (runs as-is: the census CSVs ship in `data/voynich/census/`) |
+| `timm_generator_eval.py` | 15 | scores Timm's published generator sample through this harness (clone github.com/TorstenTimm/SelfCitationTextgenerator into `data/reference/` first) |
+| `u3_generator.py` | 16 | U2 plus five transplanted rules; single-move ablations for the affix agreement |
 
 Determinism: every stochastic step is seeded (`SEED = 1492`), so results are exactly reproducible.
 Null distributions use 200 seeded shuffles (`random.Random(SEED + rep)`) and report z-scores against

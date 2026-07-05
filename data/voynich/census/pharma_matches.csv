@@ -1,0 +1,7 @@
+folio_a,pos_a,folio_b,pos_b,match_type,visual_similarity,eva_label_a,eva_label_b,label_source,confidence,crop_a,crop_b,notes
+f89r1,top row 3rd from left,f89r2,top row 2nd from left,pharma-pharma,3,ottoedar,otrodaiin,direct-read,low,f89r1_brushroot.png,f89r2_brushroot.png,"near-identical 'shaving-brush' fine-filament root on both pages; the two carry DIFFERENT register labels (F1: same referent, different label)"
+f89r2,lower band right of centre,f89r2,lower band far right,pharma-pharma,2,,,direct-read,low,,,"same-page, head colour differs"
+f88v,middle band centre,f89r2,lower band far right,pharma-pharma,2,,,direct-read,low,,,"same family, clear difference"
+f88r,top row far left,f89r2,top row far left,pharma-pharma,2,,,direct-read,low,,,"reddish crown + fine rootlets, bushiness differs"
+f89r1,top row right,f89r1,middle band right,pharma-pharma,2,,,direct-read,low,,,"same-page winding-root motif, clear difference"
+f89r1,bottom right,f89r2,top centre-right,pharma-pharma,2,,,direct-read,low,,,orientation/spread differs

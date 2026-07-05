@@ -65,6 +65,8 @@
   .v-no{background:var(--sig); color:#fff;}
   .v-mix{background:var(--cyan); color:#fff;}
   .next{border-top:1.5px solid var(--graph); margin-top:14px; padding-top:10px; font-size:15px;}
+  .next p{margin:.5em 0 .75em; max-width:88ch;}
+  .next p:last-child{margin-bottom:0;}
   .next .tag{font-family:'Martian Mono',monospace; font-size:10px; letter-spacing:.14em;
     text-transform:uppercase; color:var(--sig);}
 
@@ -86,6 +88,24 @@
   details.algo summary:hover{color:var(--sig);}
   details.algo pre{margin:0; padding:12px 14px; border-top:1px solid var(--line); overflow-x:auto;
     font-family:'Martian Mono',monospace; font-size:11.5px; line-height:1.55; background:var(--paper);}
+  details.algo.plain summary::before{color:var(--cyan);}
+  .plainbody{padding:12px 16px 14px; border-top:1px solid var(--line); background:var(--paper);
+    font-size:14.5px; max-width:78ch;}
+  .plainbody p{margin:.4em 0 .8em;}
+  .plainbody p:last-child{margin-bottom:.2em;}
+  .plainbody ol,.plainbody ul{margin:.3em 0 .8em; padding-left:1.35em;}
+  .plainbody li{margin:.4em 0;}
+  .plainbody .chain{font-family:'Martian Mono',monospace; font-size:12px; line-height:1.8;
+    background:var(--bone); border:1px solid var(--line); padding:10px 14px; margin:8px 0;
+    overflow-x:auto; white-space:pre;}
+  .plainbody .chain b{color:var(--sig); font-weight:700;}
+  .plainbody .chain i{color:var(--dim); font-style:normal;}
+  .plainbody .src{font-family:'Martian Mono',monospace; font-size:10px; color:var(--dim);
+    letter-spacing:.05em; text-transform:uppercase; display:block; margin-top:6px;}
+  figure.crops{margin:10px 0;}
+  figure.crops img{width:100%; height:auto; display:block; border:1px solid var(--line); margin-top:10px;}
+  figure.crops figcaption{font-family:'Martian Mono',monospace; font-size:9.5px; color:var(--dim);
+    letter-spacing:.05em; margin-top:4px; text-transform:none;}
   a.wk{color:inherit; text-decoration:none; border-bottom:1px dotted var(--cyan);}
   a.wk:hover{color:var(--cyan); border-bottom-style:solid;}
 
@@ -118,15 +138,17 @@
 <header class="top" id="top">
   <div class="kicker caps">Statistical characterisation · the Voynich Manuscript (Yale, Beinecke Library, MS 408)</div>
   <h1>The Voynich, plate by plate</h1>
-  <p class="lede">A statistical characterisation of the Voynich Manuscript's text: thirteen
-  hypothesis-driven steps, from a replication of a Zipf's-law test to a mechanical-generation
+  <p class="lede">A statistical characterisation of the Voynich Manuscript's text: sixteen
+  hypothesis-driven steps, from a Zipf's-law test to a mechanical-generation
   account of Voynichese. In short: the text's real anomalies are very low conditional character
   entropy (h2 ≈ 2.4 bits vs 3.4–3.6 for languages) and too-uniform word length; a four-parameter
   copy-and-mutate generator reproduces essentially the whole 17-metric statistical fingerprint;
-  the one structure it under-reproduces is page-level vocabulary organisation, so a formulaic,
-  low-information label layer is not excluded. No decoding is attempted. Each plate states a
-  hypothesis, the test, the result, and the question it opened next. Collapsible ALGORITHM blocks
-  hold the core code; dotted-underlined terms link to definitions.</p>
+  the one structure it under-reproduces is page-level vocabulary organisation; and a pre-registered
+  label-to-image census (the decisive test) finds the labels behave as a formulaic register, not as
+  a catalogue that names its pictures. No decoding is attempted. Each plate states a hypothesis,
+  the test, the result, and the question it opened next. Collapsible IN PLAIN TERMS blocks give
+  worked examples and plain-language explanations; ALGORITHM blocks hold the core code;
+  dotted-underlined terms link to definitions.</p>
   <p class="lede repo-note">All code, the transliteration inputs and the reference outputs are in
   <a class="wk" href="https://github.com/Whitehatnetizen/voynich-investigation" target="_blank"
   rel="noopener">this repository</a> (code MIT-licensed). The replication pipeline is in the
@@ -154,6 +176,14 @@
       Cryptologia 44(1), 2019.
       <a href="https://doi.org/10.1080/01611194.2019.1596999" target="_blank" rel="noopener">doi:10.1080/01611194.2019.1596999</a>
       : the self-citation model tested in Step 8.</li>
+    <li>T. Timm, <em>"How the Voynich Manuscript was created"</em>, arXiv:1407.6639, 2014.
+      <a href="https://arxiv.org/abs/1407.6639" target="_blank" rel="noopener">arxiv.org/abs/1407.6639</a>
+      : the long-form study; source of the annotated word chains quoted on Plate 8.</li>
+    <li>T. Timm, <em>"Self-citation text generator: additional materials"</em> (MIT licence).
+      <a href="https://github.com/TorstenTimm/SelfCitationTextgenerator" target="_blank" rel="noopener">github.com/TorstenTimm/SelfCitationTextgenerator</a>,
+      <a href="https://doi.org/10.5281/zenodo.2531632" target="_blank" rel="noopener">doi:10.5281/zenodo.2531632</a>
+      : the published generator implementation scored on Plate 15; its shipped sample (seed 19) is the
+      text evaluated, and five of its rules are transplanted into U3 on Plate 16.</li>
     <li>G. A. Miller, <em>"Some effects of intermittent silence"</em>, American Journal of Psychology
       70(2), 1957: random typing produces a Zipf-like curve, the reason the monkey control matters.</li>
     <li>Zandbergen–Landini EVA transliteration (ZL3b-n, IVTFF 2.0) and the v101 transliteration
@@ -181,8 +211,8 @@
   <p class="mono">VOYNICH INVESTIGATION ·
   <a class="wk" href="https://github.com/Whitehatnetizen/voynich-investigation" target="_blank"
   rel="noopener">github.com/Whitehatnetizen/voynich-investigation</a> · CODE MIT-LICENSED</p>
-  <p>Numbers are the current (2026-07-04, post-review) values against 200-shuffle real null
-  distributions. Throughout, <span class="mono">z</span> is the
+  <p>Numbers are the current (2026-07-05, post-review) values against 200-shuffle real null
+  distributions (the label-image census uses 1,000 permutation reps). Throughout, <span class="mono">z</span> is the
   <a class="wk" href="https://en.wikipedia.org/wiki/Standard_score" target="_blank" rel="noopener">standard
   score</a>: the observed excess divided by the standard deviation of the null distribution, so
   z=3 is about the conventional discovery threshold and z=78 is far beyond chance.

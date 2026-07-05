@@ -1,11 +1,10 @@
 # The Voynich investigation: a chain of hypotheses
 
 *An account of how this project unfolded. Each step states a hypothesis in plain language, the test
-performed, the result, and the question that opened next. Numbers are the current (2026-07-04,
-post-review) values. Where an earlier number was corrected, the correction is noted. Reference
-outputs: `results/*.json`. All external sources: `REFERENCES.md`. Collapsible blocks contain the
-core algorithms; complete scripts are in `scripts/`. An illustrated version of this narrative is
-published as this repository's GitHub Pages site.*
+performed, the result, and the question that opened next. Numbers are the current (2026-07-05,
+post-review) values. Where an earlier number was corrected, the correction is noted. Source data:
+`results/*.json`. Full detail: `FINDINGS.md` and `review/FINDINGS-UPDATE-2026-07-04.md`. Collapsible
+blocks contain the core algorithms; complete scripts are in `scripts/`.*
 
 The Voynich Manuscript is a roughly 240-page illustrated book in an unknown script that no one has
 read in 600 years. This project does not attempt to read it. It asks a narrower, answerable
@@ -22,13 +21,13 @@ straight-line-on-a-log-log-plot signature every natural language shares.
 
 **How we tested it.** We counted every word, ranked them by frequency, and plotted rank against
 frequency on log-log axes, next to six real languages and two controls: uniform-pool gibberish
-(1,000 invented words used equally often, the control from the source video) and a "monkey text" of
+(a fixed pool of 1,000 invented words used equally often) and a "monkey text" of
 random letters with spaces.
 
-**Result: validated, with low discriminating power.** The Voynich lands on the same descending
+**Result: validated, with low discriminating power.** The Voynich lies on the same descending
 diagonal as the six languages. The uniform-pool gibberish fails: a near-horizontal line (fitted
-slope -0.05) that falls off a cliff at its 1,000-type limit. The monkey text is not on the diagonal:
-its curve is stepped, with a shelf of equally common short words at the head, and its descent is
+slope -0.05) that drops abruptly at its 1,000-type limit. The monkey text is not on the diagonal:
+its curve is stepped, with a plateau of equally common short words at the lowest ranks, and its descent is
 shallower than the languages' (fitted slopes -0.49 to -0.69 depending on rank range, against about
 -0.9 for the languages and the Voynich). It nevertheless passes a loose Zipf test. A test that
 random typing nearly passes cannot separate meaningful text from mechanical text production; Zipf
@@ -42,7 +41,7 @@ SEED = 1492   # fixed seed; both controls are exactly reproducible
 N = 30000     # tokens per control, matching the analysis window
 
 def build_uniform_pool(rng):
-    """The source video's control: ~1,000 invented words drawn UNIFORMLY.
+    """Control 1: ~1,000 invented words drawn UNIFORMLY.
     Every word has the same probability, so the rank-frequency curve is
     flat until the pool runs out, then drops off a cliff."""
     pool = set()
@@ -142,9 +141,9 @@ not a novel but a herbal, and against that the Voynich might look normal.
 botanical prose (Pliny's *Natural History*), and pure naming (33,000 Linnaean plant binomials). Then
 we re-measured h2 and word length.
 
-**Result: refuted.** All three registers cluster at h2 near 3.45 to 3.52, while the Voynich sits
-alone at 2.4. Botanical text accumulates rare plant and drug names, which raises entropy; the
-naming-heavy registers sit furthest from the Voynich, not nearest. The low-entropy anomaly is not a
+**Result: refuted.** All three registers cluster at h2 near 3.45 to 3.52, while the Voynich is
+isolated at 2.4. Botanical text accumulates rare plant and drug names, which raises entropy; the
+naming-heavy registers are furthest from the Voynich, not nearest. The low-entropy anomaly is not a
 register effect. It is a property of the notation system, not of the subject matter.
 
 **Next question.** If it is not a natural register, is it a real language hidden under a cipher?
@@ -241,8 +240,8 @@ the vocabulary and affix kit identical. We tracked three signatures: a below-shu
 distance, an excess of near-identical neighbours, and a locality gradient in which nearer means
 more similar.
 
-**Result: validated; the largest effect sizes in the project.** All three signatures fire far above
-every language: a nearest-distance excess at z of about 78, a copy spike at z of about 50, and a
+**Result: validated; the largest effect sizes in the project.** All three signatures exceed their null distributions by wide
+margins: a nearest-distance excess at z of about 78, a copy spike at z of about 50, and a
 locality gradient at z of about 23, all against 200-shuffle null distributions. Hebrew, repetitive
 scripture in a short abjad, matches the exact-repeat part but not the local gradient, so the
 Voynich's copying is specifically local. A single process accounts for the slot grammar, the
@@ -399,9 +398,9 @@ nulls, and re-ran everything against 200-shuffle real null distributions with z-
 
 **Result: the main findings hold; several sub-claims were corrected.** The low h2, the narrow word
 length, and the self-citation copy signal all hold under attack. The self-citation signal is absent
-from real prose, from a real Latin word list, and from enciphered Latin. Several numbers moved
+from real prose, from a real Latin word list, and from enciphered Latin. Several figures were revised
 downward: the "~75%" long-range reproduction became "about a third" (Step 10), a "faint
-stable-collocation layer" fell to about 1 sigma and was retracted, a "5% Currier-dialect" slice of
+stable-collocation layer" was retracted at about 1 sigma, and a "5% Currier-dialect" component of
 the structure became statistically zero, and the topical-clustering signal halved under a
 burstiness-robust null. All corrections reduced the strength of previously published claims; most
 favoured the mechanical reading, while the long-range correction favoured the content reading.
@@ -426,9 +425,14 @@ process produces in either direction.
 order in every section, scribal hand and locus type, and tested whether affixes agree across word
 boundaries. No subset has language-like word order. One statistic fired: a word's ending predicts
 the next word's beginning as strongly as Latin's grammatical agreement does (z of about 80), it
-survives excluding copied words, and the mechanical generator misses it entirely. This localises the
-residual word-order signal: a real cross-word rule the current generator does not reproduce. It is
-not full syntax, but it is a genuine constraint between words.
+survives excluding copied words, and the mechanical generator as first built missed it entirely.
+This localised the residual word-order signal: a real cross-word rule, not full syntax, but a
+genuine constraint between words. A follow-up later recovered about 40% of it mechanically: adding
+habits taken unchanged from Timm's generator implementation, an ablation shows one habit carries
+the whole effect, sometimes cutting a written word in two. The cut halves of a real word meet at a
+genuine glyph transition, and that seam, seen from outside, is exactly "ending predicts beginning"
+(`results/u3_report.md`). How often the scribes actually cut words, and the remaining 60% of the
+signal, stay open.
 
 <details>
 <summary>Algorithm: cross-word affix agreement (scripts/t3_syntax_hunt.py)</summary>
@@ -492,11 +496,11 @@ herbal and pharmaceutical pages directly. The result splits along a layout-versu
 layout is a catalogue: one label sits at each star-holding nymph in the zodiac wheels, and one above
 each root fragment on the pharmaceutical page, so the makers did place text at the objects it
 belongs to. But the content is filler: two adjacent, interchangeable nymphs carry near-identical
-labels, six visibly different roots carry rhyming variants of the same small stem, and the herbal
+labels, six visibly different roots carry minor variants of the same small stem, and the herbal
 pages, where a caption-catalogue would show its clearest plant names, have almost no labels at all.
 The labels do not behave like a working naming system. The evidence favours labels-as-register,
 moderately rather than decisively. What the pictures exclude with more confidence is a rich,
-distinctive catalogue: 30 interchangeable figures and six different roots would not carry rhyming
+distinctive catalogue: 30 interchangeable figures and six different roots would not carry near-identical
 labels if each named a distinct thing.
 
 An illustration-conditioned generator attacks the same question from the mechanical side. We built a
@@ -507,14 +511,121 @@ but it reaches only about 15% of the Voynich's value and still does not reproduc
 drift. The page-level drift is the structure the generators reproduce least, and it is the same
 structure the label-to-image test probes from the meaning side.
 
-**Summary.** After Zipf, entropy, register, cipher, mechanism, word order, copying, a 17-metric
-generator, long-range information, a six-front red-team, a full statistical re-audit and six
-falsification tests: a purely mechanical process reproduces essentially the entire Voynich
-fingerprint, and the self-citation copy signal is the strongest single piece of evidence for it. The
-text's vocabulary tracks the pictures down to the page in a way no mechanical generator yet fully
-reproduces, so a formulaic-but-meaningful reading is not excluded. The visual pass over the labels
-points the same way: catalogue layout, filler content. Two readings still stand, but they have
-narrowed. The question is no longer "meaningless generation versus a meaningful catalogue" but
-"meaningless generation versus a formulaic, low-information label layer", and the pictures have made
-the richly-meaningful end the less likely one. Whether even that thin label layer carries real names
-is the question the next, deeper visual pass takes up.
+**Next question.** The labels get their own examination: do they name anything at all?
+
+---
+
+## Step 14: The label-image census
+
+**Hypothesis.** If meaning survives anywhere, it is in the labels, and a naming layer has visible
+signatures: the same referent carries the same label, a recurring label keeps its position, and
+special objects carry special words.
+
+**How we tested it.** A census of the label layer made the first visual reading quantitative,
+under four decision rules fixed before the data was collected, so the statistics could not be
+chosen to flatter the hypothesis: slot recurrence across the twelve zodiac medallions (298 ring
+figures), label distance on near-identical nymph pairs, label identity on recurring pharmaceutical
+root drawings, and the words under the central zodiac animals. 1,000-rep permutation nulls
+throughout.
+
+**Result: register, not a naming catalogue.** C1: labels that recur across zodiac pages do not re-occupy the same angular slot
+(z = -1.4 against a within-page permutation null; a star catalogue in fixed order would). C2: across
+18 pairs of near-identical star-nymphs, the labels are exactly as distinct as random pairs from the
+label pool (z = +0.9, matched on both labels' lengths): a shared register, not shared names. C3: the
+pharmaceutical root drawings turn out to be a diverse set with almost no genuine same-referent
+repeats (itself evidence against a cross-referenced catalogue), and the one clear repeated root
+(f89r1/f89r2) carries two different labels. C4: only one of twelve zodiac medallions has a
+Voynichese word under its central animal; the words under the others are month names in a later
+hand, so there is no per-sign name set to test. No rule fired in the naming direction. The label
+layer is a register, not a naming catalogue.
+
+**Next question.** Before closing, the hypothesis this project tested owes its origin a test of
+its own: score the published implementation of the self-citation idea on the same instruments.
+
+---
+
+## Step 15: The prior-art test
+
+**Hypothesis.** The self-citation hypothesis is Timm and Schinner's, and they published a working
+generator implementation. Scored on this project's instruments, it should match the Voynich where
+its mechanisms overlap ours, and its design differences should appear as measurable deviations.
+
+**How we tested it.** We cloned the published implementation (MIT-licensed, the paper's
+additional-materials repository) and scored its shipped deterministic sample (pseudorandom seed
+19; 10,832 tokens) through the same harness as every other text in this project, size-matched
+against the Voynich and our U2 at the same token count (`scripts/timm_generator_eval.py`).
+
+**Result: shared core, measured deviations.** Where it matches: mean word length (4.71 vs the
+Voynich's 4.69), word-order information (0.0106 vs 0.0102; our U2 measures 0.0007, so its
+line-and-paragraph machinery captures word-order structure U2 lacks) and adjacent repetition.
+Where it deviates: too much exact copying (excess 0.064 vs 0.035), too weak a locality gradient
+(0.023 vs 0.086), a vocabulary that is too small (2,228 types vs 3,154, size-matched) with a
+correspondingly steep Zipf slope (-0.98 vs -0.83), and over-uniform word lengths (sd 1.56 vs
+1.80). The design difference behind the deviations: it fixes about 20 configured constants plus
+hand-coded glyph-legality tables, where U2 fixes four parameters; the two implementations answer
+different questions (available fidelity versus minimal sufficient machinery). One deviation is
+diagnostic rather than a defect: its output shows suffix-to-prefix agreement at z = 5.4 where our
+U2 shows none (z = -1.1; the Voynich measures 22.9 at this sample size), so something in its rule
+set produces the Step 12 agreement structure mechanically.
+
+**Next question.** Which of its rules produces the agreement? Transplant them into U2 one family
+at a time and measure.
+
+---
+
+## Step 16: The split-word test
+
+**Hypothesis.** One grammar-like structure resisted the mechanical account: a word's ending
+predicts the next word's beginning about as strongly as Latin agreement (Step 12), and Timm's
+implementation produces a measurable part of it (Step 15). Some specific rule in that
+implementation must generate the structure without meaning.
+
+**How we tested it.** We extended our generator to U3: U2's four parameters unchanged, plus five
+moves transplanted from Timm's implementation at the probabilities in his shipped configuration
+(give a copied word the ending of another recent word; write a long word as two consecutive
+tokens; join two short neighbours; derive the next word from the one just written; when copying,
+prefer the word directly above). Nothing was fitted to the agreement statistic and the success
+criterion was fixed before the first run. Then single-move ablations: disable one move at a time,
+regenerate, re-measure. Stability checked across four random seeds.
+
+**Result: the split move accounts for it.** U3 raises the agreement excess from U2's 0.002 bits
+(z = 0.5) to 0.084 bits (z = 24.2; z = 21 to 24 across four seeds), which is 42% of the Voynich's
+0.198 bits (z = 61.6) on the same 30,000-token harness. The other fingerprint metrics stay within
+U2's range, except the exact-copy excess, which falls from 0.025 to 0.013 (Voynich: 0.048).
+Single-move ablations isolate the source: with the token-splitting move disabled the excess drops
+to -0.003 bits (z = -0.8), while disabling any other move leaves z between 17 and 20. The
+splitting move writes a token of six or more glyphs as two consecutive tokens, cut at a random
+interior point. Each such pair spans a transition that was word-internal, and word-internal
+transitions are where the script's predictability is concentrated (h2 = 2.4 bits, Step 3), so the
+suffix-to-prefix statistic registers that transition as cross-token dependence: relocating a word
+boundary converts within-word structure into measured between-word structure. Independent support
+for the move: split and joined variants of the same string occur on adjacent lines (`olchedy`,
+f75v line 19; `ol chedy`, line 18), and EVA word boundaries are known to be uncertain.
+Unexplained remainder: 58% of the agreement excess, the reduced exact-copy excess, and the
+manuscript's actual splitting rate, which is countable and was not measured here. Details:
+`results/u3_report.md`, `results/u3_generator.json`.
+
+---
+
+## Conclusion
+
+The results support a specific account of the Voynichese text. Its two statistical anomalies, a
+conditional character entropy near 2.4 bits and a word-length standard deviation of 1.82, are
+reproduced, together with the rest of the 17-metric fingerprint, by a four-parameter process of
+local copying with small mutations; the copy signatures that identify this process are the largest
+effects measured in the project and appear in no reference language. The strongest apparently
+grammatical structure, cross-word affix agreement, is 42% attributable to word-boundary placement
+rather than to syntax. The label layer, tested under decision rules fixed before the images were
+examined, shows none of the positional, referential or lexical behaviour of a naming system.
+
+Two interpretations remain compatible with these results: production of text without semantic
+content by a practised generation procedure, with vocabulary drifting as the illustrations change;
+or a formulaic text layer of very low information content whose statistics imitate such a
+procedure. Every test reported here favours the first. The second cannot be excluded from internal
+evidence alone, because a mechanism shown to be sufficient is not thereby shown to have operated.
+
+Three residual structures define what any future account, mechanical or linguistic, must explain:
+the unattributed 58% of the affix agreement, the folio-to-folio vocabulary drift that no generator
+reproduces, and the long-range association excess. Distinguishing the two remaining
+interpretations requires external evidence: codicology, pigment and ink analysis, provenance, or a
+demonstrated decipherment of some subset of the text.

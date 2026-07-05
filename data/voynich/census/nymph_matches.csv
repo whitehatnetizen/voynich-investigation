@@ -1,0 +1,21 @@
+folio_a,ring_a,slot_a,folio_b,ring_b,slot_b,visual_similarity,eva_label_a,eva_label_b,dl_distance,confidence,crop_a,crop_b,notes
+f72r2,2,1,f72r3,1,1,3,okaly,oraiinam,6,med,f72r2_topring.png,f72r3_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72r2,2,1,f72v1,1,20,3,okaly,oy,3,med,f72r2_topring.png,f72v1_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72r2,2,1,f72v2,1,18,3,okaly,okeoram,5,med,f72r2_topring.png,f72v2_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72r2,2,1,f72v3,1,1,3,okaly,okey,2,med,f72r2_topring.png,f72v3_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72r3,1,1,f72v1,1,20,3,oraiinam,oy,7,med,f72r3_topring.png,f72v1_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72r3,1,1,f72v2,1,18,3,oraiinam,okeoram,5,med,f72r3_topring.png,f72v2_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72r3,1,1,f72v3,1,1,3,oraiinam,okey,7,med,f72r3_topring.png,f72v3_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72v1,1,20,f72v2,1,18,3,oy,okeoram,6,med,f72v1_topring.png,f72v2_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72v1,1,20,f72v3,1,1,3,oy,okey,2,med,f72v1_topring.png,f72v3_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72v2,1,18,f72v3,1,1,3,okeoram,okey,4,med,f72v2_topring.png,f72v3_topring.png,"frontal-standing nymph, holds star, outer-ring top figure; near-identical archetype"
+f72r2,2,5,f72v2,1,18,3,"otair,dy",okeoram,5,med,f72r2_region.jpg,f72v2_topring.png,"frontal-standing archetype, distinct outer-ring figures across pages"
+f72r3,1,5,f72v3,1,1,3,ypaiin.alaly,okey,6,med,f72r3_region.jpg,f72v3_topring.png,"frontal-standing archetype, distinct outer-ring figures across pages"
+f72v1,1,7,f72r2,2,1,3,yteod,okaly,5,med,f72v1_region.jpg,f72r2_topring.png,"frontal-standing archetype, distinct outer-ring figures across pages"
+f72v2,1,6,f72v1,1,20,3,sheoeky,oy,5,med,f72v2_region.jpg,f72v1_topring.png,"frontal-standing archetype, distinct outer-ring figures across pages"
+f72v3,1,8,f72r3,1,1,3,sheeos.oy,oraiinam,8,med,f72v3_region.jpg,f72r3_topring.png,"frontal-standing archetype, distinct outer-ring figures across pages"
+f73r,2,1,f73v,2,1,3,oteedyl,eery,4,med,f73r_topring.png,f73v_topring.png,profile/striding long-haired nymph reaching to star; f73r/f73v share this sub-archetype
+f73r,2,6,f73v,2,7,3,oteeosy,"yfaiin,y",7,med,f73r_region.jpg,f73v_region.jpg,profile/striding long-haired nymph reaching to star; f73r/f73v share this sub-archetype
+f73r,2,11,f73v,2,11,3,dalshey,okeos,7,med,f73r_region.jpg,f73v_region.jpg,profile/striding long-haired nymph reaching to star; f73r/f73v share this sub-archetype
+f72r2,2,1,f73r,2,1,2,okaly,oteedyl,5,med,f72r2_topring.png,f73r_topring.png,both nude star-nymphs but frontal-standing vs profile-striding pose differs
+f72v2,1,18,f73v,2,1,2,okeoram,eery,5,med,f72v2_topring.png,f73v_topring.png,both nude star-nymphs; pose sub-archetype differs

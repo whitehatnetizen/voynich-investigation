@@ -1,0 +1,73 @@
+{
+  "_meta": {
+    "n": 30000,
+    "seed": 1492,
+    "timm_constants": {
+      "P_ENDSWAP": 0.5,
+      "P_COMBINE": 0.15,
+      "P_SPLIT": 0.15,
+      "P_REUSE_LAST": 0.1,
+      "P_SAMEPOS": 0.28
+    },
+    "u2_dials": {
+      "W": 10,
+      "p_copy": 0.2,
+      "overlap": 0.68
+    },
+    "criterion": "affix agreement rises from U2's ~0 toward the Voynich's while the rest of the panel stays in U2's ballpark; no new parameter is fitted to the agreement statistic"
+  },
+  "Voynich": {
+    "h2_cross": 2.396,
+    "wordlen_mean": 4.909,
+    "wordlen_std": 1.82,
+    "zipf_slope": -0.892,
+    "n_types": 6789,
+    "sc_d1": 0.0476,
+    "sc_grad": 0.0879,
+    "order_frac": 0.0165,
+    "adj_repeat": 0.0085,
+    "affix_agreement": {
+      "n_pairs": 24252,
+      "mi_real": 0.4232,
+      "mi_shuffle": 0.2251,
+      "excess": 0.1982,
+      "z": 61.6
+    }
+  },
+  "U2": {
+    "h2_cross": 2.441,
+    "wordlen_mean": 4.891,
+    "wordlen_std": 1.816,
+    "zipf_slope": -0.854,
+    "n_types": 6091,
+    "sc_d1": 0.0247,
+    "sc_grad": 0.0945,
+    "order_frac": 0.0012,
+    "adj_repeat": 0.0047,
+    "affix_agreement": {
+      "n_pairs": 20104,
+      "mi_real": 0.266,
+      "mi_shuffle": 0.2639,
+      "excess": 0.0021,
+      "z": 0.5
+    }
+  },
+  "U3": {
+    "h2_cross": 2.483,
+    "wordlen_mean": 4.807,
+    "wordlen_std": 1.871,
+    "zipf_slope": -0.788,
+    "n_types": 7260,
+    "sc_d1": 0.0131,
+    "sc_grad": 0.0818,
+    "order_frac": 0.0022,
+    "adj_repeat": 0.0089,
+    "affix_agreement": {
+      "n_pairs": 20007,
+      "mi_real": 0.3962,
+      "mi_shuffle": 0.3127,
+      "excess": 0.0835,
+      "z": 24.2
+    }
+  }
+}

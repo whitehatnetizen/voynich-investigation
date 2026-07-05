@@ -1,0 +1,67 @@
+{
+  "seed": 1492,
+  "reps": 1000,
+  "C1": {
+    "test": "C1 slot recurrence (clock-angle)",
+    "n_crosspage_pairs": 75,
+    "n_labels_on_multiple_pages": 29,
+    "obs_mean_circ_dist_deg": 97.3,
+    "null_mean_deg": 88.89,
+    "null_sd_deg": 5.99,
+    "z": -1.4,
+    "fires": false,
+    "reps": 1000,
+    "direction": "z>0 => matched labels sit CLOSER in angle than chance (same-slot signal)"
+  },
+  "C2": {
+    "test": "C2 interchangeables share labels",
+    "n_pairs_sim3": 18,
+    "obs_mean_DL": 5.222,
+    "null_mean_DL": 4.993,
+    "null_sd": 0.249,
+    "z": 0.92,
+    "fires": false,
+    "direction": "at_null_register",
+    "naming_supported": false,
+    "obs_mean_DL_first_glyph_stripped": 4.944,
+    "interpretation": "DL below null => identical labels on identical figures (naming); above null => active differentiation; ~null => shared register only. NOTE: matched pairs here are all cross-page, so a positive z may partly reflect page-level stem clustering rather than active differentiation; the load-bearing conclusion is only that the naming (below-null) direction is refuted."
+  },
+  "C3": {
+    "test": "C3 same-referent same-label (pharma-pharma)",
+    "n_pairs_sim3": 1,
+    "status": "too few pharma-pharma similarity-3 pairs for a permutation test",
+    "obs_frac_DL_le1": 0.0,
+    "fires": false,
+    "pharma_herbal_supporting": {
+      "n_pairs_sim3": 0,
+      "frac_DL_le1": null,
+      "note": "P-first labels; supporting evidence only"
+    }
+  },
+  "C4": {
+    "test": "C4 per-sign central name set",
+    "n_voynichese_central_words": 1,
+    "cond_a_mutually_distinct": false,
+    "frac_distinct": null,
+    "cond_b_not_ring_stem": "N/A (no set of central words to test)",
+    "cond_c_dup_pairs_same_word": false,
+    "dup_pair_word_presence": {
+      "Aries": {
+        "a": "otolal",
+        "b": null
+      },
+      "Taurus": {
+        "a": null,
+        "b": null
+      }
+    },
+    "fires": false,
+    "note": "Only f70v2 carries a Voynichese central word (otolal); the words under the other central animals are later-hand Romance month annotations, not Voynichese. There is no Voynichese per-sign central-name layer to fire on."
+  },
+  "verdict": {
+    "any_fire": false,
+    "fired": [],
+    "naming_direction_fires": [],
+    "reading": "no rule fires in the NAMING direction: the label layer is register, not a naming catalogue. C2 is at_null_register (z=0.92): labels on near-identical figures are as distinct as random length-matched pairs, which refutes shared names on shared referents. The two-readings balance moves further toward meaningless / low-information generation and away from a meaningful cross-referent catalogue."
+  }
+}

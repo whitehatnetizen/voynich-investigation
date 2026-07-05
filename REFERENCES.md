@@ -74,6 +74,14 @@ second is kept for bootstrap resampling. Plain-text URL pattern:
   *Cryptologia* 44(1), 1-19. <https://doi.org/10.1080/01611194.2019.1596999>
   The self-citation copy-and-mutate model tested in Step 8 is theirs; this project supplies an
   independent, shuffle-controlled test of it with real null distributions.
+- **T. Timm (2014), "How the Voynich Manuscript was created",** arXiv:1407.6639.
+  <https://arxiv.org/abs/1407.6639> The long-form study; source of the annotated word chains
+  quoted on Plate 8 of the story page.
+- **T. Timm, "Self-citation text generator: additional materials"** (MIT licence).
+  <https://github.com/TorstenTimm/SelfCitationTextgenerator>, <https://doi.org/10.5281/zenodo.2531632>
+  The published generator implementation scored in Step 15 (`scripts/timm_generator_eval.py` uses its
+  shipped seed-19 sample); five of its rules are transplanted into U3 in Step 16. Clone it into
+  `data/reference/` to rerun the evaluation; it is not redistributed here.
 - **G. A. Miller (1957), "Some effects of intermittent silence",** *American Journal of Psychology*
   70(2), 311-314. The result that random typing with spaces produces a Zipf-like rank-frequency curve,
   which is why the "monkey text" control matters in Step 1.

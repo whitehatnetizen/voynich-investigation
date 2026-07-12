@@ -626,8 +626,8 @@ interior point. Each such pair spans a transition that was word-internal, and wo
 transitions are where the script's predictability is concentrated (h2 = 2.4 bits, Step 3), so the
 suffix-to-prefix statistic registers that transition as cross-token dependence: relocating a word
 boundary converts within-word structure into measured between-word structure. Independent support
-for the move: split and joined variants of the same string occur on adjacent lines (`olchedy`,
-f75v line 19; `ol chedy`, line 18), and EVA word boundaries are known to be uncertain.
+for the move: split and joined variants of the same string occur on adjacent lines (`ol chedy`,
+f75v line 44; `olchedy`, lines 45 and 46), and EVA word boundaries are known to be uncertain.
 Unexplained remainder: 58% of the agreement excess, the reduced exact-copy excess, and the
 manuscript's actual splitting rate, which is countable and was not measured here. Details:
 `results/u3_report.md`, `results/u3_generator.json`.
